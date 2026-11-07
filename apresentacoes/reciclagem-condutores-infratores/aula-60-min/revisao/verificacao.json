@@ -1,0 +1,11 @@
+{
+  "slides": 37,
+  "errors": [],
+  "network": [],
+  "checks": "37 slides em 16:9 e 16:10; tela estreita; 4 quizzes com feedback correto/incorreto; índice; navegação rápida; modo sem efeitos; offline; PDF",
+  "observacoes_esperadas": [
+    "Capa: decoração recortada, título dentro da body.",
+    "Slide31 em390×844: rolagem vertical intencional."
+  ],
+  "problemas_inesperados": []
+}

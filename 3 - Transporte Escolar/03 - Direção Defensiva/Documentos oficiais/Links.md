@@ -1,0 +1,43 @@
+# Documentos oficiais: Direção Defensiva (Transporte Escolar)
+
+Documentos gratuitos relevantes para direção defensiva, a partir das listas "Documentos oficiais para baixar" das notas de pesquisa. Data: 02/11/2026.
+
+## Baixados (nesta pasta)
+
+| Documento | Arquivo | Link de origem |
+|---|---|---|
+| Manual de Direção Defensiva DENATRAN 2005 (cópia Detran-PR) | Manual_Direcao_Defensiva_DENATRAN_2005.pdf | https://www.detran.pr.gov.br/arquivos/File/habilitacao/apostilas/direcaodefensiva.pdf |
+| Detran-PE, Direção Defensiva e Prevenção de Sinistros (2024) | Apostila_Direcao_Defensiva_Prevencao_Sinistros_DetranPE_2024.pdf (conteúdo não conferido nas notas) | https://www.detran.pe.gov.br/images/educacao/apostila-direcao-defensiva-prevencao-sinistros-versao-detranpe2024-compactado.pdf |
+| CTB compilado (Planalto) | CTB_Lei_9503-1997_compilado_Planalto.html | https://www.planalto.gov.br/ccivil_03/leis/l9503compilado.htm |
+| Lei 11.705/2008, Lei Seca (Planalto) | Lei_11705-2008_Lei_Seca_Planalto.html | https://www.planalto.gov.br/ccivil_03/_ato2007-2010/2008/lei/l11705.htm |
+| Lei 12.760/2012, Nova Lei Seca (Planalto) | Lei_12760-2012_Nova_Lei_Seca_Planalto.html | https://www.planalto.gov.br/ccivil_03/_ato2011-2014/2012/lei/l12760.htm |
+| PNATRANS 2023, anexo da Res. CONTRAN 1.004/2023 | PNATRANS_2023_Anexo_Resolucao_CONTRAN_1004-2023.pdf | https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/Anexo_PNATRANS2023.pdf/@@download/file |
+
+## Só como link
+
+| Documento | Motivo | Link |
+|---|---|---|
+| Portaria SENATRAN nº 923/2025 (PDF gov.br) | o gov.br devolveu página de verificação (captcha) no download automático; baixar pelo navegador | https://www.gov.br/transportes/pt-br/assuntos/transito/arquivos-senatran/portarias/2025/Portaria9232025.pdf |
+| Portaria SENATRAN nº 923/2025 (DOU) | página do DOU | https://www.in.gov.br/web/dou/-/portaria-n-923-de-10-de-dezembro-de-2025-674500191 |
+| Resolução CONTRAN nº 1.020/2025 (DOU) | página do DOU | https://www.in.gov.br/web/dou/-/resolucao-contran-n-1.020-de-1-de-dezembro-de-2025-674131330 |
+| Resolução CONTRAN nº 1.020/2025 (PDF Detran-RS) | base normativa do curso (tema do módulo de legislação); não baixado nesta rodada | https://www.detran.rs.gov.br/upload/arquivos/202512/09223649-resolucao-do-contran-n-1-02025.pdf |
+| NitTrans/Niterói, Cartilha Direção Defensiva (2026) | arquivo acima de 25 MB | https://nittrans.niteroi.rj.gov.br/wp-content/uploads/2026/06/CARTILHA-Direcao-Defensiva-A5.pdf |
+| Res. CONTRAN 432/2013, álcool e etilômetro (gov.br) | o gov.br devolveu página de verificação (captcha) no download automático; baixar pelo navegador | https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/resolu-o-uo-432-2013c-1.pdf |
+| Código Penal compilado (Planalto), art. 18 | citado nas notas, fora da lista de downloads | https://www.planalto.gov.br/ccivil_03/decreto-lei/del2848compilado.htm |
+| ANTT, Ofício Circular nº 1511/2026 (termo "sinistro") | o endereço retornou erro 404 no download (conferir na fonte oficial) | https://www.gov.br/antt/pt-br/assuntos/rodovias/normativos-surod/oficios-circulares-orientativos/oficio-circular-no-1511-2026-surod-dir-antt.pdf |
+| PNATRANS 2023, anexo v2 (endereço alternativo) | o gov.br devolveu página de verificação (captcha) no download automático; baixar pelo navegador | https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/Resolucao10042023_Anexo_v2.pdf |
+| PNATRANS, Anexo I (versão SENATRAN) | o gov.br devolveu página de verificação (captcha) no download automático; baixar pelo navegador | https://www.gov.br/infraestrutura/pt-br/assuntos/transito/arquivos-senatran/anexo_i_pnatrans_2.pdf |
+| PNATRANS 2021 (cópia MPCE) | arquivo acima de 25 MB | https://mpce.mp.br/wp-content/uploads/2022/08/Plano-Nacional-de-Reducao-de-Mortes-e-Lesoes-no-Transito-2021.pdf |
+| OMS, Global Plan for the Decade of Action for Road Safety 2021–2030 | página internacional, não verificada nas notas | https://www.who.int/publications/m/item/global-plan-for-the-decade-of-action-for-road-safety-2021-2030 |
+| SENATRAN, manual da biblioteca de educação, Vol. I | o gov.br devolveu página de verificação (captcha) no download automático; baixar pelo navegador (conteúdo não confirmado) | https://www.gov.br/transportes/pt-br/pt-br/assuntos/transito/arquivos-senatran/educacao/publicacoes/manual_vol_i_2.pdf |
+| SENATRAN, manual da biblioteca de educação, Vol. II | o gov.br devolveu página de verificação (captcha) no download automático; baixar pelo navegador (conteúdo não confirmado) | https://www.gov.br/transportes/pt-br/pt-br/assuntos/transito/arquivos-senatran/educacao/publicacoes/manual_vol_ii_-2.pdf |
+| SENATRAN, manual da biblioteca de educação, Vol. III | o gov.br devolveu página de verificação (captcha) no download automático; baixar pelo navegador (conteúdo não confirmado) | https://www.gov.br/transportes/pt-br/pt-br/assuntos/transito/arquivos-senatran/educacao/publicacoes/manual_vol_iii_2.pdf |
+| Detran-SP, página "Apostilas Denatran" | página com coletânea | https://www.detran.sp.gov.br/wps/wcm/connect/portaldetran/detran/sa-educacao/sa-apostilas+denatran/60390cc3-de1f-42b5-a8f4-0c2ad21287cb |
+| Detran-RJ, cartilha | conteúdo não verificado nas notas; não incluída | https://www5.detran.rj.gov.br/_include/on_line/cartilha/cartilha.pdf |
+| SENATRAN, Manual Brasileiro de Exames de Direção Veicular (cópia Detran-DF) | fora do escopo de direção defensiva | https://cnh-df.detran.df.gov.br/assets/docs/manual_senatran.pdf |
+| Índice oficial de resoluções do CONTRAN | página | https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes |
+| ONSV, mortes no trânsito em 2024 (Portal do Trânsito) | notícia (fonte de dados) | https://www.portaldotransito.com.br/noticias/fiscalizacao-e-legislacao/estatisticas/mortes-no-transito-avancam-pelo-quinto-ano-seguido-no-brasil-aponta-analise-do-onsv/ |
+| DATASUS (TabNet/SIM) | página institucional | https://datasus.saude.gov.br |
+| Res. CONTRAN 819/2021, transporte de crianças (gov.br) | o gov.br devolveu página de verificação (captcha) no download automático; baixar pelo navegador | https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-contran/resolucoes/Resolucao8192021.pdf |
+| SEST SENAT, "Motorista Amigo do Ciclista" (2016) | cópia hospedada em domínio não oficial | https://observatoriodabicicleta.org.br/uploads/2020/01/Apostila-Motorista-Amigo-do-Ciclista-2016-Senat.pdf |
+| FNDE, Guia do Transporte Escolar | o gov.br devolveu página de verificação (captcha) no download automático; baixar pelo navegador | https://www.gov.br/fnde/pt-br/acesso-a-informacao/acoes-e-programas/programas/pnate/media-pnate/cartilhas-e-manuais/guia_do_transporte_escolar.pdf |

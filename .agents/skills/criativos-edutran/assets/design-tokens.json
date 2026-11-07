@@ -1,0 +1,18 @@
+{
+  "status": "Direção visual aprovada pelo usuário a partir do criativo de transporte escolar",
+  "source": "../../../assets/referencias-aprovadas/edutran-transporte-escolar-v01.png",
+  "observed_at": "2026-11-04",
+  "colors": {
+    "brand": "#005E91",
+    "blue": "#005E91",
+    "deep": "#06283A",
+    "cyan": "#008DB5",
+    "ink": "#141414",
+    "accent": "#FFC51B",
+    "background": "#06283A",
+    "paper": "#FFFFFF"
+  },
+  "font": "IBM Plex Sans, system-ui, sans-serif",
+  "logo": "edutran-logo-perfil.jpg",
+  "layout_reference": "Playbook aprovado: degradê azul, texto branco/amarelo, imagem dominante, logo sobre branco; capa horizontal no estilo Aquatro."
+}

@@ -1,0 +1,175 @@
+{
+  "source": "https://cda-proposta-faixa-preta.vercel.app/#1",
+  "consultado_em": "2026-11-06",
+  "slides": 32,
+  "assets": [
+    {
+      "path": "a/artwalk.svg",
+      "url": "https://cda-proposta-faixa-preta.vercel.app/a/artwalk.svg",
+      "bytes": 3594,
+      "sha256": "1af3782d9b2baad83c9f599d49574de1f4e92726109b7034533dd5019ed23f2c",
+      "uso": "Referência visual local; licença de redistribuição não informada. Não incluir em aulas Edutran."
+    },
+    {
+      "path": "a/authenticfeet.png",
+      "url": "https://cda-proposta-faixa-preta.vercel.app/a/authenticfeet.png",
+      "bytes": 25251,
+      "sha256": "fbd164adaa68a22831ac933d0fcfd87a9a3d79c380a8cbb681f338cc81efe48b",
+      "uso": "Referência visual local; licença de redistribuição não informada. Não incluir em aulas Edutran."
+    },
+    {
+      "path": "a/black-sulfato.webp",
+      "url": "https://cda-proposta-faixa-preta.vercel.app/a/black-sulfato.webp",
+      "bytes": 11010,
+      "sha256": "9f2bffd2046bdd74e8bb9925dd191cf17276405fc865247bd78df3a45fa75be9",
+      "uso": "Referência visual local; licença de redistribuição não informada. Não incluir em aulas Edutran."
+    },
+    {
+      "path": "a/c_agronomo3.webp",
+      "url": "https://cda-proposta-faixa-preta.vercel.app/a/c_agronomo3.webp",
+      "bytes": 57564,
+      "sha256": "77b7d50b8ef9b76d1cbc2036aee40b4e2b44d22430aa8786fc0a1f598f681efa",
+      "uso": "Referência visual local; licença de redistribuição não informada. Não incluir em aulas Edutran."
+    },
+    {
+      "path": "a/c_augusto2.webp",
+      "url": "https://cda-proposta-faixa-preta.vercel.app/a/c_augusto2.webp",
+      "bytes": 26750,
+      "sha256": "2a90ffef13229dd26c0bb5b6d52a6e39c51b7a38f5a7c30036b833b1f2318b9c",
+      "uso": "Referência visual local; licença de redistribuição não informada. Não incluir em aulas Edutran."
+    },
+    {
+      "path": "a/c_balcao3.webp",
+      "url": "https://cda-proposta-faixa-preta.vercel.app/a/c_balcao3.webp",
+      "bytes": 17968,
+      "sha256": "ed910f11b94a24802d8a6092e347a4275c8722501778d2d6661af4bd8ace72b0",
+      "uso": "Referência visual local; licença de redistribuição não informada. Não incluir em aulas Edutran."
+    },
+    {
+      "path": "a/c_campo2.webp",
+      "url": "https://cda-proposta-faixa-preta.vercel.app/a/c_campo2.webp",
+      "bytes": 146082,
+      "sha256": "c148c9042acef303ec58d8b7a37f740a0349aa96ed34bb0a7434f978a5a2a419",
+      "uso": "Referência visual local; licença de redistribuição não informada. Não incluir em aulas Edutran."
+    },
+    {
+      "path": "a/corello-white.svg",
+      "url": "https://cda-proposta-faixa-preta.vercel.app/a/corello-white.svg",
+      "bytes": 2208,
+      "sha256": "df12e01f4d94def5c5011683327354101c126a293225b02266636895ed002ca4",
+      "uso": "Referência visual local; licença de redistribuição não informada. Não incluir em aulas Edutran."
+    },
+    {
+      "path": "a/crmbonus-ink.png",
+      "url": "https://cda-proposta-faixa-preta.vercel.app/a/crmbonus-ink.png",
+      "bytes": 6705,
+      "sha256": "dfdac34c413c23fb6daf83ae249bfeae927c06c468430d789c344b3bad050b5f",
+      "uso": "Referência visual local; licença de redistribuição não informada. Não incluir em aulas Edutran."
+    },
+    {
+      "path": "a/crmbonus-white.png",
+      "url": "https://cda-proposta-faixa-preta.vercel.app/a/crmbonus-white.png",
+      "bytes": 12554,
+      "sha256": "daf0ee3a6946e2061b512765d8b64466bd84b1880f7889716d8d6a978bef6b51",
+      "uso": "Referência visual local; licença de redistribuição não informada. Não incluir em aulas Edutran."
+    },
+    {
+      "path": "a/disparo-1.webp",
+      "url": "https://cda-proposta-faixa-preta.vercel.app/a/disparo-1.webp",
+      "bytes": 38636,
+      "sha256": "5339cbd730110a0828670481cefa7cd9163fa055ab4806504c7f228497ddf29f",
+      "uso": "Referência visual local; licença de redistribuição não informada. Não incluir em aulas Edutran."
+    },
+    {
+      "path": "a/disparo-2.webp",
+      "url": "https://cda-proposta-faixa-preta.vercel.app/a/disparo-2.webp",
+      "bytes": 24684,
+      "sha256": "4edce98e8191d7b8cf6fa706bec0bcff9e2a9b67c014651b9cc6ed592d87ab10",
+      "uso": "Referência visual local; licença de redistribuição não informada. Não incluir em aulas Edutran."
+    },
+    {
+      "path": "a/disparo-4.webp",
+      "url": "https://cda-proposta-faixa-preta.vercel.app/a/disparo-4.webp",
+      "bytes": 14476,
+      "sha256": "41ce25c5329f121f3ae3e8be84d7d93d941f3b2181d8405be079ec4a4dc14ec6",
+      "uso": "Referência visual local; licença de redistribuição não informada. Não incluir em aulas Edutran."
+    },
+    {
+      "path": "a/logo-branco.svg",
+      "url": "https://cda-proposta-faixa-preta.vercel.app/a/logo-branco.svg",
+      "bytes": 15969,
+      "sha256": "03d656b924ee3cbde6d1db83a671686e7a31c7910d2a527e2b9311e19572a2d2",
+      "uso": "Referência visual local; licença de redistribuição não informada. Não incluir em aulas Edutran."
+    },
+    {
+      "path": "a/magicfeet.png",
+      "url": "https://cda-proposta-faixa-preta.vercel.app/a/magicfeet.png",
+      "bytes": 15175,
+      "sha256": "083a4869771e227be72a7128b4ad591037fa467957190a0509c81d3145f19b4f",
+      "uso": "Referência visual local; licença de redistribuição não informada. Não incluir em aulas Edutran."
+    },
+    {
+      "path": "a/maninho-danca.webp",
+      "url": "https://cda-proposta-faixa-preta.vercel.app/a/maninho-danca.webp",
+      "bytes": 14640,
+      "sha256": "f6f9827638f7bb054722c8972e4e53263d3767009a708953ee00d40c1353b67d",
+      "uso": "Referência visual local; licença de redistribuição não informada. Não incluir em aulas Edutran."
+    },
+    {
+      "path": "a/manychat-white.svg",
+      "url": "https://cda-proposta-faixa-preta.vercel.app/a/manychat-white.svg",
+      "bytes": 6829,
+      "sha256": "6337127f82ae2bf623adc5385692dbee94acdae1dc24b6712838c487b3db0ec5",
+      "uso": "Referência visual local; licença de redistribuição não informada. Não incluir em aulas Edutran."
+    },
+    {
+      "path": "a/placa-1.webp",
+      "url": "https://cda-proposta-faixa-preta.vercel.app/a/placa-1.webp",
+      "bytes": 96248,
+      "sha256": "b4520b3ccdb2f5ee281e4731b57a64fe91eaeb13e987895d6d7991e52f818edc",
+      "uso": "Referência visual local; licença de redistribuição não informada. Não incluir em aulas Edutran."
+    },
+    {
+      "path": "a/quinta-no-talhao.webp",
+      "url": "https://cda-proposta-faixa-preta.vercel.app/a/quinta-no-talhao.webp",
+      "bytes": 15598,
+      "sha256": "8b7af39080abf5fb219960aa88e491a175a001ba7b5a7568f16f1482bf13b546",
+      "uso": "Referência visual local; licença de redistribuição não informada. Não incluir em aulas Edutran."
+    },
+    {
+      "path": "a/revelacao.webp",
+      "url": "https://cda-proposta-faixa-preta.vercel.app/a/revelacao.webp",
+      "bytes": 8458,
+      "sha256": "7d2c256b0abff39326e356c57a8ca2c75a3a9cc63ad36891aa69d6d14bd00097",
+      "uso": "Referência visual local; licença de redistribuição não informada. Não incluir em aulas Edutran."
+    },
+    {
+      "path": "a/simbolo-branco.svg",
+      "url": "https://cda-proposta-faixa-preta.vercel.app/a/simbolo-branco.svg",
+      "bytes": 1810,
+      "sha256": "772a888505e05757515f8ba9d8e1090bc1e22e80d15f14f0de3654f24a4d3d33",
+      "uso": "Referência visual local; licença de redistribuição não informada. Não incluir em aulas Edutran."
+    },
+    {
+      "path": "a/simbolo-colorido.svg",
+      "url": "https://cda-proposta-faixa-preta.vercel.app/a/simbolo-colorido.svg",
+      "bytes": 1810,
+      "sha256": "e4d182855880bd1cd256b73321821bfe409e7a29de9b951a24f6eec6e59c08ec",
+      "uso": "Referência visual local; licença de redistribuição não informada. Não incluir em aulas Edutran."
+    },
+    {
+      "path": "a/st-sulfato-1-psiu.webp",
+      "url": "https://cda-proposta-faixa-preta.vercel.app/a/st-sulfato-1-psiu.webp",
+      "bytes": 13236,
+      "sha256": "f53030fc25346edcc46282ed089a0a8104c67defe70cea86f227811c803bd8f3",
+      "uso": "Referência visual local; licença de redistribuição não informada. Não incluir em aulas Edutran."
+    },
+    {
+      "path": "a/v4-white.png",
+      "url": "https://cda-proposta-faixa-preta.vercel.app/a/v4-white.png",
+      "bytes": 13829,
+      "sha256": "1d8c4b628496cccd3e5f7bf56b9fb7bc620ff3c9fa9ff197ce638184dae96c63",
+      "uso": "Referência visual local; licença de redistribuição não informada. Não incluir em aulas Edutran."
+    }
+  ]
+}

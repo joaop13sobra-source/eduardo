@@ -1,0 +1,13 @@
+Biblioteca de Ângulos de Copy
+
+"Estrutura: cada aba reúne os ângulos de uma categoria psicológica, com 5 colunas — # | Ângulo | Explicação | Exemplo | Prompt."
+Os exemplos foram escritos para os nichos de serviços financeiros e infoprodutos; adapte livremente.
+"Nos prompts, substitua os campos entre colchetes: [avatar], [problema], [solução], [produto], [oferta] etc."
+
+Aba,Categoria,Qtde de ângulos
+Problema,"Ângulos focados no problema — dor, medo, inimigo, crenças e erros",20
+Solução,"Ângulos focados na solução — mecanismo, novidade, transformação e método",18
+Produto,"Ângulos focados no produto — prova, autoridade, diferenciais e identidade",15
+Oferta,"Ângulos focados na oferta — preço, escassez, garantia e condições",16
+Genéricos,Ângulos de formato e atenção — funcionam sobre qualquer categoria,9
+Total,,78

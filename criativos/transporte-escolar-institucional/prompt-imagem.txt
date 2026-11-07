@@ -1,0 +1,11 @@
+Use case: ads-marketing.
+Create ONE polished portrait feed advertisement for EDUTRAN, 4:5 aspect ratio if possible, requested output 1080x1350. The attached first image is the authentic logo: preserve its exact shape and lettering, do not redesign. The second image is only a style/composition reference: do not reuse its person, text, product or claims.
+Build a completely new premium photographic creative about preparation for TRANSPORTE ESCOLAR in Brazil. Dominant upper half: realistic cinematic editorial photograph of a modern Brazilian white school minibus with yellow ESCOLAR stripe, parked safely beside a school, door closed, no recognizable children, natural morning light, warm sunlight, beautiful professional credible photography. Lower part: deep navy and petroleum blue gradient smoothly integrated into the photo, not a separate card. Colors deep blue #06283A and #005E91, warm yellow #FFC51B, white. Strong readable IBM Plex Sans-like sans serif typography, tight crisp headline, very little copy, premium campaign art, generous margins.
+Text EXACTLY in Portuguese, no additional copy:
+Small category above headline: "TRANSPORTE ESCOLAR"
+Large headline on 3 lines: "Transportar alunos" / "é cuidar" / "de vidas."
+Set "de vidas." in yellow, remaining headline white.
+Smaller support: "Preparação para uma rotina de responsabilidade e cuidado."
+Compact yellow rounded call to action with dark text: "Conheça a Edutran"
+Under it clearly readable: "@edutran_cursos"
+Bottom center: actual attached logo on a modest white rounded-top badge, with breathing room. Do not invent accreditation, certification, registration open, pricing, contact phone or legal statements. Do not use agency logos. Do not generate a mockup or montage: deliver only the final single ad image. Every word must be legible and correctly spelled. Photo is illustrative.

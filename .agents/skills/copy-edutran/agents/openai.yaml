@@ -1,0 +1,4 @@
+interface:
+  display_name: "Copy para criativos Edutran"
+  short_description: "Headlines, CTAs e roteiros para divulgação de cursos"
+  default_prompt: "Use $copy-edutran para escrever ou revisar a copy de um criativo, com o contexto e as ofertas confirmadas da Edutran."

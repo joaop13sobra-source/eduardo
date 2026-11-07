@@ -1,0 +1,19 @@
+# Arquivos locais do macOS
+.DS_Store
+.AppleDouble
+._*
+
+# Vínculos e cache local de publicação
+.vercel/
+
+# Credenciais locais
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+
+# Cache de execução
+__pycache__/
+*.pyc
+node_modules/

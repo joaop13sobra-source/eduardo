@@ -1,0 +1,1075 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Central de Adubos · Proposta V4</title>
+<meta name="robots" content="noindex,nofollow">
+<link rel="icon" href="a/simbolo-colorido.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Barlow+Condensed:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+--cr:#F5F2EA;--cr2:#ECE6D8;--ink:#14201A;--mu:rgba(20,32,26,.64);--ln:rgba(20,32,26,.12);
+--vd:#0F3D26;--bd:#A01234;--vn:#780E27;--li:#C6D52F;--w:#fff;--w8:rgba(255,255,255,.8);--w6:rgba(255,255,255,.62);
+--g:#5B6660;--bg2:#F4F5F2;--lnb:#E3E6E1;--up:#1E8A4C;
+--pj:"Plus Jakarta Sans",system-ui,-apple-system,sans-serif;--bc:"Barlow Condensed","Plus Jakarta Sans",sans-serif;
+--eo:cubic-bezier(.16,1,.3,1);--eio:cubic-bezier(.7,0,.3,1)}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%;background:#0c0507;overflow:hidden}
+body{font-family:var(--pj);color:var(--ink);-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;text-rendering:optimizeLegibility}
+img{display:block;max-width:none}
+ul{list-style:none}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+/* ---------- palco ---------- */
+#deck{position:fixed;left:50%;top:50%;width:1920px;height:1080px;transform:translate(-50%,-50%) scale(var(--k,1));transform-origin:center;overflow:hidden;background:var(--cr);box-shadow:0 40px 120px rgba(0,0,0,.45)}
+.s,.sx{position:absolute;inset:0;display:flex;flex-direction:column;gap:40px;padding:72px 120px 88px;background:var(--cr);color:var(--ink);overflow:hidden}
+.s{visibility:hidden}
+.s.on{visibility:visible}
+[data-theme=bd]{background:var(--bd);color:var(--w)}
+[data-theme=vd]{background:var(--vd);color:var(--w)}
+[data-theme=vn]{background:var(--vn);color:var(--w)}
+[data-theme=ink]{background:var(--ink);color:var(--w)}
+.top{display:flex;justify-content:space-between;align-items:center;height:36px;flex:none}
+.top .n{font:600 26px/1 var(--bc);letter-spacing:.08em;color:var(--bd)}
+.top img{height:36px}
+[data-theme] .top .n{color:var(--li)}
+/* ---------- utilitários ---------- */
+.row{display:flex}.col{display:flex;flex-direction:column}
+.f1{flex:1 1 0;min-width:0;min-height:0}.fn{flex:none}
+.ac{align-items:center}.ae{align-items:flex-end}.as{align-items:flex-start}
+.jb{justify-content:space-between}.jc{justify-content:center}.je{justify-content:flex-end}
+.g4{gap:4px}.g8{gap:8px}.g12{gap:12px}.g16{gap:16px}.g20{gap:20px}.g24{gap:24px}.g28{gap:28px}.g32{gap:32px}.g40{gap:40px}.g48{gap:48px}.g56{gap:56px}.g64{gap:64px}
+.rel{position:relative}
+.h{font:800 76px/1.04 var(--pj);letter-spacing:-.033em;text-wrap:balance}
+.h2{font:800 64px/1.05 var(--pj);letter-spacing:-.03em;text-wrap:balance}
+.lbl{font:600 26px/1 var(--bc);letter-spacing:.12em;text-transform:uppercase}
+.lbl-s{font:600 20px/1 var(--bc);letter-spacing:.12em;text-transform:uppercase}
+.num{font-family:var(--bc);font-weight:700;line-height:.9;font-variant-numeric:tabular-nums;letter-spacing:-.005em}
+.t48{font-size:48px;line-height:1.08;letter-spacing:-.02em}.t44{font-size:44px;line-height:1.12;letter-spacing:-.015em}.t40{font-size:40px;line-height:1.15;letter-spacing:-.015em}.t36{font-size:36px;line-height:1.2;letter-spacing:-.01em}
+.t34{font-size:34px;line-height:1.22}.t32{font-size:32px;line-height:1.25}.t30{font-size:30px;line-height:1.28}.t28{font-size:28px;line-height:1.3}.t26{font-size:26px;line-height:1.32}.t24{font-size:24px;line-height:1.34}.t22{font-size:22px;line-height:1.36}.t20{font-size:20px;line-height:1.38}.t18{font-size:18px;line-height:1.4}.t16{font-size:16px;line-height:1.4}.t15{font-size:15px;line-height:1.35}.t14{font-size:14px;line-height:1.35}
+.w5{font-weight:500}.w6{font-weight:600}.w7{font-weight:700}.w8{font-weight:800}
+.c-bd{color:var(--bd)}.c-vd{color:var(--vd)}.c-li{color:var(--li)}.c-mu{color:var(--mu)}.c-w{color:var(--w)}.c-w8{color:var(--w8)}.c-w6{color:var(--w6)}.c-g{color:var(--g)}.c-ink{color:var(--ink)}
+.tb{text-wrap:balance}.tp{text-wrap:pretty}
+.ic{width:1em;height:1em;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;flex:none}
+.bi{width:1em;height:1em;fill:currentColor;flex:none}
+.wa{color:#25D366}.ig{color:#E1306C}.meta{color:#0866FF}
+.ph{overflow:hidden;border-radius:20px;background:#ddd;position:relative}
+.ph img{width:100%;height:100%;object-fit:cover}
+.card{background:var(--w);border:2px solid var(--ln);border-radius:28px}
+.hoje{display:flex;flex-direction:column;gap:6px;padding-left:22px;border-left:5px solid var(--bd)}
+.hoje b{font:700 24px/1 var(--bc);letter-spacing:.1em;color:var(--bd)}
+.pill{display:inline-flex;align-items:center;gap:12px;align-self:flex-start;padding:14px 26px;border-radius:999px;background:var(--vd);color:var(--li);font:800 24px/1 var(--pj)}
+.pill .ic{font-size:26px}
+.chip{display:inline-flex;align-items:center;gap:10px;padding:10px 20px;border-radius:999px;font-weight:700}
+.badge{display:grid;place-items:center;border-radius:50%;flex:none}
+.tag-ex{font:700 15px/1 var(--bc);letter-spacing:.14em;color:var(--vd);background:rgba(198,213,47,.4);padding:6px 10px;border-radius:6px}
+/* ---------- motion ---------- */
+.js .s [data-m]{opacity:0}
+.js .s [data-m=words]{opacity:1}
+.s.play [data-m]{animation:var(--a,m-rise) .9s var(--eo) var(--d,0ms) both}
+[data-m=left]{--a:m-left}[data-m=right]{--a:m-right}[data-m=fade]{--a:m-fade}[data-m=scale]{--a:m-scale}[data-m=pop]{--a:m-pop}
+[data-m=growX]{--a:m-growx;transform-origin:left center}[data-m=growY]{--a:m-growy;transform-origin:center bottom}[data-m=draw]{--a:m-draw}
+[data-m=giant]{--a:m-giant}[data-m=typing]{--a:m-typing}
+.s.play [data-m=pop]{animation-duration:.6s}
+.s.play [data-m=typing]{animation-duration:.9s;animation-timing-function:ease}
+@keyframes m-rise{from{opacity:0;transform:translateY(32px)}to{opacity:1;transform:none}}
+@keyframes m-left{from{opacity:0;transform:translateX(-56px)}to{opacity:1;transform:none}}
+@keyframes m-right{from{opacity:0;transform:translateX(56px)}to{opacity:1;transform:none}}
+@keyframes m-fade{from{opacity:0}to{opacity:1}}
+@keyframes m-scale{from{opacity:0;transform:scale(.94)}to{opacity:1;transform:none}}
+@keyframes m-pop{0%{opacity:0;transform:scale(.6)}60%{opacity:1;transform:scale(1.06)}100%{opacity:1;transform:none}}
+@keyframes m-growx{from{opacity:1;transform:scaleX(0)}to{opacity:1;transform:none}}
+@keyframes m-growy{from{opacity:1;transform:scaleY(0)}to{opacity:1;transform:none}}
+@keyframes m-draw{from{opacity:1;clip-path:inset(0 100% 0 0)}to{opacity:1;clip-path:inset(0 0 0 0)}}
+@keyframes m-giant{from{opacity:0;transform:translate(80px,40px) rotate(-14deg) scale(.9)}to{opacity:.08;transform:none}}
+@keyframes m-typing{0%{opacity:0;max-height:0;padding-top:0;padding-bottom:0;transform:scale(.8)}15%,80%{opacity:1;max-height:60px;padding-top:12px;padding-bottom:12px;transform:none}100%{opacity:0;max-height:0;padding-top:0;padding-bottom:0;transform:scale(.8);margin-top:-10px}}
+.w{display:inline-block;overflow:hidden;vertical-align:top;padding-bottom:.06em;margin-bottom:-.06em}
+.w>i{display:inline-block;font-style:normal;transform:translateY(110%)}
+.s.play .w>i{animation:m-word 1s var(--eo) calc(var(--d,0ms) + var(--wi,0) * 55ms) both}
+@keyframes m-word{from{transform:translateY(110%)}to{transform:none}}
+.kb img{transform:scale(1.08)}
+.s.play .kb img{animation:m-kb 9s cubic-bezier(.2,.6,.2,1) .2s both}
+@keyframes m-kb{from{transform:scale(1.12)}to{transform:scale(1)}}
+.static [data-m],.static .w>i,.static .kb img{animation:none!important;opacity:1!important;transform:none!important;clip-path:none!important}
+.static [data-m=giant]{opacity:.08!important}
+.static [data-m=typing]{display:none}
+/* ---------- capa / fechamento ---------- */
+.giant{position:absolute;right:-180px;top:110px;width:1240px;opacity:.08;pointer-events:none}
+.s.play .giant{animation:m-giant 1.6s var(--eo) both,m-float 14s ease-in-out 1.6s infinite alternate}
+@keyframes m-float{from{transform:none}to{transform:translate(-24px,-16px) rotate(-3deg)}}
+.cover-t{font:800 150px/.98 var(--pj);letter-spacing:-.045em}
+.logos-x{font:300 36px/1 var(--pj);color:var(--w)}
+/* ---------- slide 2 ---------- */
+.track{position:relative;height:16px;margin:0 0 48px}
+.track .line{position:absolute;left:8px;right:8px;top:7px;height:2px;background:var(--ln)}
+.track .line i{position:absolute;inset:0;background:var(--bd)}
+.track .dot{position:absolute;top:0;width:16px;height:16px;border-radius:50%;background:var(--bd);margin-left:-8px}
+.step-n{font:700 220px/.8 var(--bc);letter-spacing:-.02em}
+/* ---------- slide 3 / 4 ---------- */
+.pane{background:var(--w);border:2px solid var(--ln);border-radius:28px;padding:20px;display:flex;gap:32px}
+.cc{border-radius:28px;overflow:hidden;display:flex;flex-direction:column}
+.cc .ph{border-radius:0;height:300px;flex:none}
+.cc-tx{padding:28px 40px 32px;display:flex;flex-direction:column;gap:12px;flex:1;justify-content:flex-end}
+.cc-tx h3{font:700 56px/1 var(--bc);letter-spacing:.06em;color:var(--li)}
+.dots{display:flex;gap:6px}
+.dots i{width:12px;height:12px;border-radius:50%;background:rgba(20,32,26,.13)}
+.dots i.on{background:var(--bd)}
+.s.play .dots i.on{animation:m-pop .5s var(--eo) var(--d) both}
+/* ---------- celulares ---------- */
+.phone{width:390px;flex:none;background:var(--w);border:7px solid var(--ink);border-radius:40px;overflow:hidden;display:flex;flex-direction:column;box-shadow:0 24px 60px rgba(20,32,26,.18)}
+.ph-bar{display:flex;align-items:center;gap:12px;padding:16px 18px;font:700 18px/1 var(--pj)}
+.ph-bar .bi{font-size:24px}
+.wa-bg{background:#EFEAE2}
+.wa-bar{background:#075E54;color:#fff}
+.chat{display:flex;flex-direction:column;gap:10px;padding:16px}
+.msg{max-width:84%;padding:10px 14px;border-radius:4px 14px 14px 14px;background:#fff;font:500 17px/1.35 var(--pj);box-shadow:0 1px 1px rgba(0,0,0,.06);align-self:flex-start}
+.msg.me{align-self:flex-end;background:#D9FDD3;border-radius:14px 4px 14px 14px}
+.msg small{display:block;margin-top:4px;font-size:14px;color:var(--g);text-align:right}
+.msg.sk{width:250px;display:flex;flex-direction:column;gap:8px;padding:14px}
+.msg.sk i{display:block;height:8px;border-radius:4px;background:rgba(20,32,26,.16)}
+.msg.sk i+i{width:50%;background:rgba(20,32,26,.1)}
+.nb{width:30px;height:30px;border-radius:50%;background:var(--bd);color:#fff;font:700 18px/30px var(--bc);text-align:center;flex:none}
+.typing{align-self:flex-start;display:flex;gap:5px;padding:12px 14px;background:#fff;border-radius:4px 14px 14px 14px;overflow:hidden}
+.typing.me{align-self:flex-end;background:#D9FDD3;border-radius:14px 4px 14px 14px}
+.typing i{width:8px;height:8px;border-radius:50%;background:var(--g);animation:t-dot 1s infinite}
+.typing i:nth-child(2){animation-delay:.15s}.typing i:nth-child(3){animation-delay:.3s}
+@keyframes t-dot{0%,60%,100%{opacity:.25;transform:none}30%{opacity:1;transform:translateY(-3px)}}
+.ig-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px}
+.ig-grid img{width:100%;height:150px;object-fit:cover}
+.ig-btn{flex:1;padding:9px 0;border-radius:8px;text-align:center;font:700 14px/1 var(--pj)}
+.avatar{width:64px;height:64px;border-radius:50%;border:3px solid #E1306C;display:grid;place-items:center;background:#fff;flex:none}
+/* ---------- janela de sistema / BI ---------- */
+.win{background:var(--bg2);border:1px solid rgba(20,32,26,.16);border-radius:22px;overflow:hidden;box-shadow:0 30px 80px rgba(20,32,26,.18),0 2px 6px rgba(20,32,26,.06)}
+.side{background:var(--vd);display:flex;flex-direction:column;align-items:center;gap:20px;padding:20px 0}
+.side .it{width:44px;height:44px;border-radius:12px;display:grid;place-items:center;color:rgba(255,255,255,.6);font-size:22px}
+.side .it.on{background:rgba(255,255,255,.16);color:var(--li)}
+.bcard{background:#fff;border:1px solid var(--lnb);border-radius:14px;padding:18px 20px;display:flex;flex-direction:column;gap:12px;min-width:0}
+.bh{font:800 17px/1.2 var(--pj)}
+.fl{display:inline-flex;align-items:center;gap:8px;padding:8px 12px;border-radius:8px;border:1px solid var(--lnb);background:#fff;font:600 15px/1 var(--pj)}
+.fl .ic{font-size:16px;color:var(--g)}
+.fl.on{background:var(--vd);border-color:var(--vd);color:#fff}.fl.on .ic{color:var(--li)}
+.live{width:8px;height:8px;border-radius:50%;background:var(--up);box-shadow:0 0 0 0 rgba(30,138,76,.5);animation:live 2s infinite}
+@keyframes live{0%{box-shadow:0 0 0 0 rgba(30,138,76,.5)}70%{box-shadow:0 0 0 10px rgba(30,138,76,0)}100%{box-shadow:0 0 0 0 rgba(30,138,76,0)}}
+.kpi{gap:6px}
+.kpi .lab{font:600 15px/1.2 var(--pj);color:var(--g)}
+.kpi .val{font:700 60px/1 var(--bc)}
+.kpi .dl{display:flex;align-items:center;gap:6px;font:700 14px/1 var(--pj);color:var(--up)}
+.kpi .dl .ic{font-size:16px}
+.spark{display:flex;align-items:flex-end;gap:4px;height:40px}
+.spark i{width:9px;border-radius:2px;background:rgba(15,61,38,.2)}
+.spark i:last-child{background:var(--vd)}
+.kpi.hot{background:var(--bd);border-color:var(--bd);color:#fff}
+.kpi.hot .lab{color:rgba(255,255,255,.8)}.kpi.hot .dl{color:var(--li)}
+.kpi.hot .spark i{background:rgba(255,255,255,.35)}.kpi.hot .spark i:last-child{background:var(--li)}
+.bars{display:grid;grid-template-columns:repeat(6,1fr);gap:20px;align-items:end;flex:1}
+.bars .bc{display:flex;flex-direction:column;align-items:center;gap:6px}
+.bars .bv{width:100%;border-radius:6px 6px 0 0;background:rgba(15,61,38,.22);transition:background .25s}
+.bars .bc:hover .bv{background:rgba(15,61,38,.5)}
+.bars .bc.cur .bv{background:var(--vd)}
+.bars b{font:700 22px/1 var(--bc);color:var(--g)}
+.bars .cur b{color:var(--vd)}
+.bars small{font:600 14px/1 var(--pj);color:var(--g)}
+.ctab .r{display:grid;grid-template-columns:1fr 112px 96px;align-items:center;padding:8px 0 6px;border-bottom:1px solid var(--lnb);font:600 16px/1.2 var(--pj);row-gap:8px}
+.ctab .hd{font:700 14px/1 var(--pj);letter-spacing:.06em;color:var(--g);text-transform:uppercase;padding:0 0 8px}
+.ctab .r .bar{grid-column:1/-1;height:6px;border-radius:3px;background:rgba(160,18,52,.35)}
+.ctab .r.first .bar{background:var(--bd)}
+.ret{justify-self:start;padding:4px 8px;border-radius:6px;background:#EEF0EC;font:800 14px/1 var(--pj)}
+.r.first .ret{background:var(--vd);color:var(--li)}
+.fun{display:flex;align-items:center;gap:10px}
+.fun .st{flex:1;padding:10px 14px;border-radius:10px;background:var(--bg2);display:flex;flex-direction:column;gap:4px}
+.fun .st b{font:700 38px/1 var(--bc)}
+.fun .st span{font:600 14px/1.2 var(--pj);color:var(--g)}
+.fun .st.end{background:var(--vd)}.fun .st.end b{color:var(--li)}.fun .st.end span{color:#fff}
+.fun .cv{display:flex;flex-direction:column;align-items:center;gap:2px;font:800 14px/1 var(--pj);color:var(--up)}
+.fun .cv .ic{font-size:18px;color:var(--g)}
+.wbtn{display:inline-flex;align-items:center;gap:6px;padding:6px 10px;border-radius:8px;background:rgba(37,211,102,.14);font:700 14px/1 var(--pj);color:var(--vd)}
+.wbtn .bi{font-size:16px;color:#25D366}
+.qrow{display:flex;justify-content:space-between;align-items:center;padding:6px 0;font:600 16px/1.2 var(--pj)}
+.qrow i{display:inline-block;width:9px;height:9px;border-radius:50%;margin-right:10px;background:#E0A33A}
+.qrow.hot i{background:var(--bd)}.qrow.hot b{color:var(--bd)}
+.mx{display:grid;grid-template-columns:1fr repeat(4,150px);gap:6px;align-items:center}
+.mx .ch{font:700 14px/1.2 var(--pj);letter-spacing:.06em;color:var(--g);text-transform:uppercase;text-align:center}
+.mx .ch:first-child{text-align:left}
+.mx .rl b{display:block;font:800 18px/1.2 var(--pj)}.mx .rl span{font:600 14px/1.2 var(--pj);color:var(--g)}
+.cell{height:58px;border-radius:8px;display:grid;place-items:center;font:700 26px/1 var(--bc);position:relative}
+.cell.hot{font-size:32px;outline:3px solid var(--ink);outline-offset:-3px}
+.cell.hot::after{content:"";position:absolute;inset:-3px;border-radius:10px;border:3px solid var(--bd);opacity:0}
+.s.play .cell.hot::after{animation:ring 2s ease-out 2.2s infinite}
+@keyframes ring{0%{opacity:.9;transform:scale(1)}100%{opacity:0;transform:scale(1.25)}}
+.ltab .r{display:grid;grid-template-columns:200px 150px 140px 1fr;align-items:center;padding:9px 0;border-bottom:1px solid var(--lnb);font:600 15px/1.2 var(--pj)}
+.ltab .hd{font:700 14px/1 var(--pj);letter-spacing:.06em;color:var(--g);text-transform:uppercase}
+.bon{justify-self:start;padding:4px 8px;border-radius:6px;background:rgba(224,163,58,.18);color:#8A5A0B;font:700 14px/1 var(--pj)}
+.systab .r{display:grid;grid-template-columns:150px 230px 170px 170px 1fr;align-items:center;padding:0 24px;border-bottom:1px solid var(--lnb);font:600 20px/1 var(--pj);flex:1}
+.systab .hd{flex:none;padding:14px 24px;background:var(--bg2);font:700 14px/1 var(--pj);letter-spacing:.08em;color:var(--g)}
+.nr{justify-self:start;padding:6px 12px;border-radius:6px;background:rgba(160,18,52,.1);color:var(--bd);font:700 17px/1 var(--pj)}
+/* ---------- jornada / timeline ---------- */
+.jr{display:grid;grid-template-columns:repeat(6,1fr);gap:20px}
+.jr .bdg{width:120px;height:120px;border-radius:50%;background:rgba(255,255,255,.1);display:grid;place-items:center;font-size:52px;color:#fff;position:relative;z-index:1}
+.jr .bdg .bi{font-size:44px}
+.jr .k:last-child .bdg{background:var(--li);color:var(--vd)}
+.jr .con{position:absolute;left:120px;right:-20px;top:59px;height:3px;background:rgba(255,255,255,.28)}
+.tl{display:grid;grid-template-columns:repeat(5,1fr)}
+.tl .dot{width:88px;height:88px;border-radius:50%;background:#fff;border:4px solid var(--bd);display:grid;place-items:center;font-size:40px;color:var(--bd);position:relative;z-index:1}
+.tl .k:last-child .dot{background:var(--vd);border-color:var(--vd);color:var(--li)}
+.tl .ln{position:absolute;top:42px;height:4px;background:var(--bd);left:50%;width:100%}
+/* ---------- régua de recompra ---------- */
+.rg{position:relative;height:28px;border-radius:14px;overflow:hidden;background:rgba(255,255,255,.12)}
+.rg .a{position:absolute;left:0;top:0;bottom:0;width:66.67%;background:var(--li)}
+.rg .b{position:absolute;left:66.67%;top:0;bottom:0;right:0;background:#E8546B}
+.rgl{position:relative;height:56px}
+.rgl span{position:absolute;top:0;display:flex;flex-direction:column;gap:2px;color:#fff;font:700 34px/1 var(--bc)}
+.rgl small{font:600 18px/1.2 var(--pj);color:var(--w6)}
+/* ---------- valores protegidos ---------- */
+.eye{display:inline-flex;align-items:center;gap:14px;padding:16px 26px 16px 20px;border-radius:999px;font:800 24px/1 var(--pj);background:rgba(20,32,26,.06);border:2px solid var(--ln);color:var(--ink);transition:background .3s,border-color .3s,transform .2s var(--eo)}
+.eye:hover{transform:translateY(-2px);background:rgba(20,32,26,.1)}
+.eye:active{transform:scale(.97)}
+.eye .ic{font-size:30px}.priv:not(.open) .eye{animation:eyep 2.4s ease-in-out 1.5s infinite}@keyframes eyep{0%,100%{box-shadow:0 0 0 0 rgba(198,213,47,0)}50%{box-shadow:0 0 0 10px rgba(198,213,47,.35)}}
+.eye .on{display:none}
+[data-theme] .eye{background:rgba(255,255,255,.12);border-color:rgba(255,255,255,.28);color:#fff}
+[data-theme] .eye:hover{background:rgba(255,255,255,.2)}
+.open .eye .on{display:inline}.open .eye .off{display:none}
+.eye-hint{display:inline-block;margin-left:4px;padding:3px 7px;border-radius:6px;background:rgba(20,32,26,.1);font:700 14px/1 var(--pj)}
+[data-theme] .eye-hint{background:rgba(255,255,255,.18)}
+.pv{display:inline-block;transition:filter .9s var(--eo) var(--pd,0ms),opacity .9s var(--eo) var(--pd,0ms)}
+.priv:not(.open) .pv{filter:blur(14px);opacity:.55;user-select:none}
+.strike{position:relative}
+.strike::after{content:"";position:absolute;left:-4px;right:-4px;top:52%;height:5px;border-radius:3px;background:var(--li);transform:scaleX(0);transform-origin:left;transition:transform .7s var(--eo) .3s}
+.open .strike::after{transform:none}
+.lock-glow{position:absolute;inset:-30px -60px;border-radius:40px;background:radial-gradient(closest-side,rgba(198,213,47,.35),transparent);opacity:0;pointer-events:none}
+.open .lock-glow{animation:glow 1.6s var(--eo) .2s both}
+@keyframes glow{0%{opacity:0;transform:scale(.8)}40%{opacity:1}100%{opacity:0;transform:scale(1.2)}}
+.inv .r{display:flex;justify-content:space-between;align-items:center;padding:18px 0;border-bottom:1px solid var(--ln)}
+[data-theme] .inv .r{border-color:rgba(255,255,255,.18)}
+.inv .nm{display:flex;align-items:center;gap:12px;font:800 26px/1 var(--pj)}
+.inv .nm .ic{font-size:30px}
+.inv .sub{font:500 18px/1.3 var(--pj);opacity:.7;margin-top:6px}
+.inv .v{font:700 46px/1 var(--bc);font-variant-numeric:tabular-nums}
+/* ---------- interface ---------- */
+#curtain{position:absolute;inset:0;z-index:50;display:grid;grid-template-columns:repeat(8,1fr);pointer-events:none}
+#curtain i{display:block;transform:scale(0,1);margin-right:-2px;will-change:transform}
+#prog{position:absolute;left:0;bottom:0;height:4px;background:var(--li);z-index:40;transition:width .6s var(--eo);mix-blend-mode:normal}
+#ui{position:fixed;right:20px;bottom:20px;z-index:100;display:flex;gap:8px;align-items:center;padding:8px;border-radius:16px;background:rgba(20,20,20,.72);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);color:#fff;opacity:0;transform:translateY(8px);transition:opacity .3s,transform .3s var(--eo)}
+#ui.show,#ui:hover,#ui:focus-within{opacity:1;transform:none}
+#ui button{width:40px;height:40px;border-radius:10px;display:grid;place-items:center;font-size:20px}
+#ui button:hover{background:rgba(255,255,255,.14)}
+#ui button:focus-visible,.eye:focus-visible{outline:3px solid var(--li);outline-offset:2px}
+#ui .cnt{font:600 16px/1 var(--bc);letter-spacing:.06em;min-width:64px;text-align:center;font-variant-numeric:tabular-nums}
+#ov{position:fixed;inset:0;z-index:200;background:rgba(12,5,7,.94);backdrop-filter:blur(8px);overflow:auto;padding:40px;display:none}
+#ov.open{display:block}
+#ov .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(288px,1fr));gap:20px;max-width:1800px;margin:0 auto}
+#ov .th{position:relative;aspect-ratio:16/9;border-radius:10px;overflow:hidden;cursor:pointer;outline:2px solid transparent;transition:outline-color .2s,transform .2s var(--eo);background:var(--cr)}
+#ov .th:hover{transform:translateY(-3px);outline-color:var(--li)}
+#ov .th.cur{outline-color:var(--bd)}
+#ov .th .sx{width:1920px;height:1080px;transform-origin:0 0;pointer-events:none}
+#ov .th span{position:absolute;left:8px;bottom:8px;z-index:2;font:700 14px/1 var(--pj);background:rgba(0,0,0,.6);color:#fff;padding:5px 8px;border-radius:6px}
+#hint{position:fixed;left:50%;bottom:24px;transform:translateX(-50%);z-index:90;color:rgba(255,255,255,.75);font:600 14px/1 var(--pj);background:rgba(20,20,20,.6);padding:10px 16px;border-radius:999px;transition:opacity .6s;pointer-events:none}
+@media (prefers-reduced-motion:reduce){
+.js .s [data-m],.s.play [data-m],.s.play .w>i,.s.play .kb img,.w>i{animation:none!important;opacity:1!important;transform:none!important;clip-path:none!important}
+.s.play [data-m=typing]{display:none}
+.s.play .giant{animation:none;opacity:.08}
+.pv,.strike::after{transition:none}
+}
+@page{size:1920px 1080px;margin:0}
+@media print{
+html,body{overflow:visible;height:auto;background:none}
+#deck{position:static;transform:none;width:1920px;height:auto;overflow:visible;box-shadow:none}
+.s{position:relative;visibility:visible;height:1080px;break-after:page;page-break-after:always}
+.s [data-m],.s .w>i,.kb img{animation:none!important;opacity:1!important;transform:none!important;clip-path:none!important}
+.s [data-m=giant]{opacity:.08!important}
+.s [data-m=typing],#curtain,#prog,#ui,#ov,#hint,.eye{display:none!important}
+}
+</style>
+</head>
+<body>
+<svg xmlns="http://www.w3.org/2000/svg" style="display:none" aria-hidden="true"><symbol id="i-arrow-right" viewBox="0 0 24 24"><path d="M5 12h14" /> <path d="m12 5 7 7-7 7" /></symbol><symbol id="i-badge-check" viewBox="0 0 24 24"><path d="M3.85 8.62a4 4 0 0 1 4.78-4.77 4 4 0 0 1 6.74 0 4 4 0 0 1 4.78 4.78 4 4 0 0 1 0 6.74 4 4 0 0 1-4.77 4.78 4 4 0 0 1-6.75 0 4 4 0 0 1-4.78-4.77 4 4 0 0 1 0-6.76Z" /> <path d="m9 12 2 2 4-4" /></symbol><symbol id="i-bell-ring" viewBox="0 0 24 24"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9" /> <path d="M10.3 21a1.94 1.94 0 0 0 3.4 0" /> <path d="M4 2C2.8 3.7 2 5.7 2 8" /> <path d="M22 8c0-2.3-.8-4.3-2-6" /></symbol><symbol id="i-bot" viewBox="0 0 24 24"><path d="M12 8V4H8" /> <rect width="16" height="12" x="4" y="8" rx="2" /> <path d="M2 14h2" /> <path d="M20 14h2" /> <path d="M15 13v2" /> <path d="M9 13v2" /></symbol><symbol id="i-calendar" viewBox="0 0 24 24"><path d="M8 2v4" /> <path d="M16 2v4" /> <rect width="18" height="18" x="3" y="4" rx="2" /> <path d="M3 10h18" /></symbol><symbol id="i-calendar-check" viewBox="0 0 24 24"><path d="M8 2v4" /> <path d="M16 2v4" /> <rect width="18" height="18" x="3" y="4" rx="2" /> <path d="M3 10h18" /> <path d="m9 16 2 2 4-4" /></symbol><symbol id="i-calendar-clock" viewBox="0 0 24 24"><path d="M21 7.5V6a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h3.5" /> <path d="M16 2v4" /> <path d="M8 2v4" /> <path d="M3 10h5" /> <path d="M17.5 17.5 16 16.3V14" /> <circle cx="16" cy="16" r="6" /></symbol><symbol id="i-chart-column" viewBox="0 0 24 24"><path d="M3 3v16a2 2 0 0 0 2 2h16" /> <path d="M18 17V9" /> <path d="M13 17V5" /> <path d="M8 17v-3" /></symbol><symbol id="i-check" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5" /></symbol><symbol id="i-chevron-left" viewBox="0 0 24 24"><path d="m15 18-6-6 6-6" /></symbol><symbol id="i-chevron-right" viewBox="0 0 24 24"><path d="m9 18 6-6-6-6" /></symbol><symbol id="i-circle-check" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" /> <path d="m9 12 2 2 4-4" /></symbol><symbol id="i-circle-help" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" /> <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3" /> <path d="M12 17h.01" /></symbol><symbol id="i-coins" viewBox="0 0 24 24"><circle cx="8" cy="8" r="6" /> <path d="M18.09 10.37A6 6 0 1 1 10.34 18" /> <path d="M7 6h1v4" /> <path d="m16.71 13.88.7.71-2.82 2.82" /></symbol><symbol id="i-eye" viewBox="0 0 24 24"><path d="M2.062 12.348a1 1 0 0 1 0-.696 10.75 10.75 0 0 1 19.876 0 1 1 0 0 1 0 .696 10.75 10.75 0 0 1-19.876 0" /> <circle cx="12" cy="12" r="3" /></symbol><symbol id="i-eye-off" viewBox="0 0 24 24"><path d="M10.733 5.076a10.744 10.744 0 0 1 11.205 6.575 1 1 0 0 1 0 .696 10.747 10.747 0 0 1-1.444 2.49" /> <path d="M14.084 14.158a3 3 0 0 1-4.242-4.242" /> <path d="M17.479 17.499a10.75 10.75 0 0 1-15.417-5.151 1 1 0 0 1 0-.696 10.75 10.75 0 0 1 4.446-5.143" /> <path d="m2 2 20 20" /></symbol><symbol id="i-flame" viewBox="0 0 24 24"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z" /></symbol><symbol id="i-gift" viewBox="0 0 24 24"><rect x="3" y="8" width="18" height="4" rx="1" /> <path d="M12 8v13" /> <path d="M19 12v7a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2v-7" /> <path d="M7.5 8a2.5 2.5 0 0 1 0-5A4.8 8 0 0 1 12 8a4.8 8 0 0 1 4.5-5 2.5 2.5 0 0 1 0 5" /></symbol><symbol id="i-headset" viewBox="0 0 24 24"><path d="M3 11h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-5Zm0 0a9 9 0 1 1 18 0m0 0v5a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3Z" /> <path d="M21 16v2a4 4 0 0 1-4 4h-5" /></symbol><symbol id="i-heart" viewBox="0 0 24 24"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z" /></symbol><symbol id="i-heart-handshake" viewBox="0 0 24 24"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z" /> <path d="M12 5 9.04 7.96a2.17 2.17 0 0 0 0 3.08c.82.82 2.13.85 3 .07l2.07-1.9a2.82 2.82 0 0 1 3.79 0l2.96 2.66" /> <path d="m18 15-2-2" /> <path d="m15 18-2-2" /></symbol><symbol id="i-layers" viewBox="0 0 24 24"><path d="m12.83 2.18a2 2 0 0 0-1.66 0L2.6 6.08a1 1 0 0 0 0 1.83l8.58 3.91a2 2 0 0 0 1.66 0l8.58-3.9a1 1 0 0 0 0-1.83Z" /> <path d="m22 17.65-9.17 4.16a2 2 0 0 1-1.66 0L2 17.65" /> <path d="m22 12.65-9.17 4.16a2 2 0 0 1-1.66 0L2 12.65" /></symbol><symbol id="i-layout-dashboard" viewBox="0 0 24 24"><rect width="7" height="9" x="3" y="3" rx="1" /> <rect width="7" height="5" x="14" y="3" rx="1" /> <rect width="7" height="9" x="14" y="12" rx="1" /> <rect width="7" height="5" x="3" y="16" rx="1" /></symbol><symbol id="i-layout-grid" viewBox="0 0 24 24"><rect width="7" height="7" x="3" y="3" rx="1" /> <rect width="7" height="7" x="14" y="3" rx="1" /> <rect width="7" height="7" x="14" y="14" rx="1" /> <rect width="7" height="7" x="3" y="14" rx="1" /></symbol><symbol id="i-link" viewBox="0 0 24 24"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" /> <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" /></symbol><symbol id="i-map-pin" viewBox="0 0 24 24"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0" /> <circle cx="12" cy="10" r="3" /></symbol><symbol id="i-maximize" viewBox="0 0 24 24"><path d="M8 3H5a2 2 0 0 0-2 2v3" /> <path d="M21 8V5a2 2 0 0 0-2-2h-3" /> <path d="M3 16v3a2 2 0 0 0 2 2h3" /> <path d="M16 21h3a2 2 0 0 0 2-2v-3" /></symbol><symbol id="i-megaphone" viewBox="0 0 24 24"><path d="m3 11 18-5v12L3 14v-3z" /> <path d="M11.6 16.8a3 3 0 1 1-5.8-1.6" /></symbol><symbol id="i-message-circle" viewBox="0 0 24 24"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z" /></symbol><symbol id="i-message-circle-x" viewBox="0 0 24 24"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z" /> <path d="m15 9-6 6" /> <path d="m9 9 6 6" /></symbol><symbol id="i-monitor" viewBox="0 0 24 24"><rect width="20" height="14" x="2" y="3" rx="2" /> <line x1="8" x2="16" y1="21" y2="21" /> <line x1="12" x2="12" y1="17" y2="21" /></symbol><symbol id="i-moon" viewBox="0 0 24 24"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z" /></symbol><symbol id="i-package" viewBox="0 0 24 24"><path d="M11 21.73a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73z" /> <path d="M12 22V12" /> <path d="m3.3 7 7.703 4.734a2 2 0 0 0 1.994 0L20.7 7" /> <path d="m7.5 4.27 9 5.15" /></symbol><symbol id="i-pen-line" viewBox="0 0 24 24"><path d="M12 20h9" /> <path d="M16.376 3.622a1 1 0 0 1 3.002 3.002L7.368 18.635a2 2 0 0 1-.855.506l-2.872.838a.5.5 0 0 1-.62-.62l.838-2.872a2 2 0 0 1 .506-.854z" /></symbol><symbol id="i-phone-call" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" /> <path d="M14.05 2a9 9 0 0 1 8 7.94" /> <path d="M14.05 6A5 5 0 0 1 18 10" /></symbol><symbol id="i-plug" viewBox="0 0 24 24"><path d="M12 22v-5" /> <path d="M9 8V2" /> <path d="M15 8V2" /> <path d="M18 8v5a4 4 0 0 1-4 4h-4a4 4 0 0 1-4-4V8Z" /></symbol><symbol id="i-radio" viewBox="0 0 24 24"><path d="M4.9 19.1C1 15.2 1 8.8 4.9 4.9" /> <path d="M7.8 16.2c-2.3-2.3-2.3-6.1 0-8.5" /> <circle cx="12" cy="12" r="2" /> <path d="M16.2 7.8c2.3 2.3 2.3 6.1 0 8.5" /> <path d="M19.1 4.9C23 8.8 23 15.1 19.1 19" /></symbol><symbol id="i-receipt" viewBox="0 0 24 24"><path d="M4 2v20l2-1 2 1 2-1 2 1 2-1 2 1 2-1 2 1V2l-2 1-2-1-2 1-2-1-2 1-2-1-2 1Z" /> <path d="M16 8h-6a2 2 0 1 0 0 4h4a2 2 0 1 1 0 4H8" /> <path d="M12 17.5v-11" /></symbol><symbol id="i-repeat" viewBox="0 0 24 24"><path d="m17 2 4 4-4 4" /> <path d="M3 11v-1a4 4 0 0 1 4-4h14" /> <path d="m7 22-4-4 4-4" /> <path d="M21 13v1a4 4 0 0 1-4 4H3" /></symbol><symbol id="i-send" viewBox="0 0 24 24"><path d="M14.536 21.686a.5.5 0 0 0 .937-.024l6.5-19a.496.496 0 0 0-.635-.635l-19 6.5a.5.5 0 0 0-.024.937l7.93 3.18a2 2 0 0 1 1.112 1.11z" /> <path d="m21.854 2.147-10.94 10.939" /></symbol><symbol id="i-settings" viewBox="0 0 24 24"><path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z" /> <circle cx="12" cy="12" r="3" /></symbol><symbol id="i-shield-alert" viewBox="0 0 24 24"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z" /> <path d="M12 8v4" /> <path d="M12 16h.01" /></symbol><symbol id="i-shield-check" viewBox="0 0 24 24"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z" /> <path d="m9 12 2 2 4-4" /></symbol><symbol id="i-shopping-bag" viewBox="0 0 24 24"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z" /> <path d="M3 6h18" /> <path d="M16 10a4 4 0 0 1-8 0" /></symbol><symbol id="i-sigma" viewBox="0 0 24 24"><path d="M18 7V5a1 1 0 0 0-1-1H6.5a.5.5 0 0 0-.4.8l4.5 6a2 2 0 0 1 0 2.4l-4.5 6a.5.5 0 0 0 .4.8H17a1 1 0 0 0 1-1v-2" /></symbol><symbol id="i-sprout" viewBox="0 0 24 24"><path d="M7 20h10" /> <path d="M10 20c5.5-2.5.8-6.4 3-10" /> <path d="M9.5 9.4c1.1.8 1.8 2.2 2.3 3.7-2 .4-3.5.4-4.8-.3-1.2-.6-2.3-1.9-3-4.2 2.8-.5 4.4 0 5.5.8z" /> <path d="M14.1 6a7 7 0 0 0-1.1 4c1.9-.1 3.3-.6 4.3-1.4 1-1 1.6-2.3 1.7-4.6-2.7.1-4 1-4.9 2z" /></symbol><symbol id="i-store" viewBox="0 0 24 24"><path d="m2 7 4.41-4.41A2 2 0 0 1 7.83 2h8.34a2 2 0 0 1 1.42.59L22 7" /> <path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8" /> <path d="M15 22v-4a2 2 0 0 0-2-2h-2a2 2 0 0 0-2 2v4" /> <path d="M2 7h20" /> <path d="M22 7v3a2 2 0 0 1-2 2a2.7 2.7 0 0 1-1.59-.63.7.7 0 0 0-.82 0A2.7 2.7 0 0 1 16 12a2.7 2.7 0 0 1-1.59-.63.7.7 0 0 0-.82 0A2.7 2.7 0 0 1 12 12a2.7 2.7 0 0 1-1.59-.63.7.7 0 0 0-.82 0A2.7 2.7 0 0 1 8 12a2.7 2.7 0 0 1-1.59-.63.7.7 0 0 0-.82 0A2.7 2.7 0 0 1 4 12a2 2 0 0 1-2-2V7" /></symbol><symbol id="i-timer" viewBox="0 0 24 24"><line x1="10" x2="14" y1="2" y2="2" /> <line x1="12" x2="15" y1="14" y2="11" /> <circle cx="12" cy="14" r="8" /></symbol><symbol id="i-trending-down" viewBox="0 0 24 24"><polyline points="22 17 13.5 8.5 8.5 13.5 2 7" /> <polyline points="16 17 22 17 22 11" /></symbol><symbol id="i-trending-up" viewBox="0 0 24 24"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17" /> <polyline points="16 7 22 7 22 13" /></symbol><symbol id="i-truck" viewBox="0 0 24 24"><path d="M14 18V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v11a1 1 0 0 0 1 1h2" /> <path d="M15 18H9" /> <path d="M19 18h2a1 1 0 0 0 1-1v-3.65a1 1 0 0 0-.22-.624l-3.48-4.35A1 1 0 0 0 17.52 8H14" /> <circle cx="17" cy="18" r="2" /> <circle cx="7" cy="18" r="2" /></symbol><symbol id="i-user-check" viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" /> <circle cx="9" cy="7" r="4" /> <polyline points="16 11 18 13 22 9" /></symbol><symbol id="i-user-x" viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" /> <circle cx="9" cy="7" r="4" /> <line x1="17" x2="22" y1="8" y2="13" /> <line x1="22" x2="17" y1="8" y2="13" /></symbol><symbol id="i-users" viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" /> <circle cx="9" cy="7" r="4" /> <path d="M22 21v-2a4 4 0 0 0-3-3.87" /> <path d="M16 3.13a4 4 0 0 1 0 7.75" /></symbol><symbol id="i-zap" viewBox="0 0 24 24"><path d="M4 14a1 1 0 0 1-.78-1.63l9.9-10.2a.5.5 0 0 1 .86.46l-1.92 6.02A1 1 0 0 0 13 10h7a1 1 0 0 1 .78 1.63l-9.9 10.2a.5.5 0 0 1-.86-.46l1.92-6.02A1 1 0 0 0 11 14z" /></symbol><symbol id="b-instagram" viewBox="0 0 24 24"><path d="M7.0301.084c-1.2768.0602-2.1487.264-2.911.5634-.7888.3075-1.4575.72-2.1228 1.3877-.6652.6677-1.075 1.3368-1.3802 2.127-.2954.7638-.4956 1.6365-.552 2.914-.0564 1.2775-.0689 1.6882-.0626 4.947.0062 3.2586.0206 3.6671.0825 4.9473.061 1.2765.264 2.1482.5635 2.9107.308.7889.72 1.4573 1.388 2.1228.6679.6655 1.3365 1.0743 2.1285 1.38.7632.295 1.6361.4961 2.9134.552 1.2773.056 1.6884.069 4.9462.0627 3.2578-.0062 3.668-.0207 4.9478-.0814 1.28-.0607 2.147-.2652 2.9098-.5633.7889-.3086 1.4578-.72 2.1228-1.3881.665-.6682 1.0745-1.3378 1.3795-2.1284.2957-.7632.4966-1.636.552-2.9124.056-1.2809.0692-1.6898.063-4.948-.0063-3.2583-.021-3.6668-.0817-4.9465-.0607-1.2797-.264-2.1487-.5633-2.9117-.3084-.7889-.72-1.4568-1.3876-2.1228C21.2982 1.33 20.628.9208 19.8378.6165 19.074.321 18.2017.1197 16.9244.0645 15.6471.0093 15.236-.005 11.977.0014 8.718.0076 8.31.0215 7.0301.0839m.1402 21.6932c-1.17-.0509-1.8053-.2453-2.2287-.408-.5606-.216-.96-.4771-1.3819-.895-.422-.4178-.6811-.8186-.9-1.378-.1644-.4234-.3624-1.058-.4171-2.228-.0595-1.2645-.072-1.6442-.079-4.848-.007-3.2037.0053-3.583.0607-4.848.05-1.169.2456-1.805.408-2.2282.216-.5613.4762-.96.895-1.3816.4188-.4217.8184-.6814 1.3783-.9003.423-.1651 1.0575-.3614 2.227-.4171 1.2655-.06 1.6447-.072 4.848-.079 3.2033-.007 3.5835.005 4.8495.0608 1.169.0508 1.8053.2445 2.228.408.5608.216.96.4754 1.3816.895.4217.4194.6816.8176.9005 1.3787.1653.4217.3617 1.056.4169 2.2263.0602 1.2655.0739 1.645.0796 4.848.0058 3.203-.0055 3.5834-.061 4.848-.051 1.17-.245 1.8055-.408 2.2294-.216.5604-.4763.96-.8954 1.3814-.419.4215-.8181.6811-1.3783.9-.4224.1649-1.0577.3617-2.2262.4174-1.2656.0595-1.6448.072-4.8493.079-3.2045.007-3.5825-.006-4.848-.0608M16.953 5.5864A1.44 1.44 0 1 0 18.39 4.144a1.44 1.44 0 0 0-1.437 1.4424M5.8385 12.012c.0067 3.4032 2.7706 6.1557 6.173 6.1493 3.4026-.0065 6.157-2.7701 6.1506-6.1733-.0065-3.4032-2.771-6.1565-6.174-6.1498-3.403.0067-6.156 2.771-6.1496 6.1738M8 12.0077a4 4 0 1 1 4.008 3.9921A3.9996 3.9996 0 0 1 8 12.0077"/></symbol><symbol id="b-meta" viewBox="0 0 24 24"><path d="M6.915 4.03c-1.968 0-3.683 1.28-4.871 3.113C.704 9.208 0 11.883 0 14.449c0 .706.07 1.369.21 1.973a6.624 6.624 0 0 0 .265.86 5.297 5.297 0 0 0 .371.761c.696 1.159 1.818 1.927 3.593 1.927 1.497 0 2.633-.671 3.965-2.444.76-1.012 1.144-1.626 2.663-4.32l.756-1.339.186-.325c.061.1.121.196.183.3l2.152 3.595c.724 1.21 1.665 2.556 2.47 3.314 1.046.987 1.992 1.22 3.06 1.22 1.075 0 1.876-.355 2.455-.843a3.743 3.743 0 0 0 .81-.973c.542-.939.861-2.127.861-3.745 0-2.72-.681-5.357-2.084-7.45-1.282-1.912-2.957-2.93-4.716-2.93-1.047 0-2.088.467-3.053 1.308-.652.57-1.257 1.29-1.82 2.05-.69-.875-1.335-1.547-1.958-2.056-1.182-.966-2.315-1.303-3.454-1.303zm10.16 2.053c1.147 0 2.188.758 2.992 1.999 1.132 1.748 1.647 4.195 1.647 6.4 0 1.548-.368 2.9-1.839 2.9-.58 0-1.027-.23-1.664-1.004-.496-.601-1.343-1.878-2.832-4.358l-.617-1.028a44.908 44.908 0 0 0-1.255-1.98c.07-.109.141-.224.211-.327 1.12-1.667 2.118-2.602 3.358-2.602zm-10.201.553c1.265 0 2.058.791 2.675 1.446.307.327.737.871 1.234 1.579l-1.02 1.566c-.757 1.163-1.882 3.017-2.837 4.338-1.191 1.649-1.81 1.817-2.486 1.817-.524 0-1.038-.237-1.383-.794-.263-.426-.464-1.13-.464-2.046 0-2.221.63-4.535 1.66-6.088.454-.687.964-1.226 1.533-1.533a2.264 2.264 0 0 1 1.088-.285z"/></symbol><symbol id="b-whatsapp" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></symbol></svg>
+<main id="deck">
+<!-- 01 -->
+<section class="s" data-theme="bd" data-title="Capa" data-notop>
+<img class="giant" src="a/simbolo-branco.svg" alt="" aria-hidden="true">
+<div class="row ac g28" data-m="fade"><img src="a/logo-branco.svg" alt="Central de Adubos" style="height:64px"><span class="logos-x">×</span><img src="a/v4-white.png" alt="V4 Company" style="height:58px"></div>
+<div class="f1 col je g40">
+<p class="lbl c-li" data-m data-d="300">Proposta V4 · novembro de 2026</p>
+<h1 class="cover-t" data-m="words" data-d="450">Central de Adubos<br>daqui a 60 dias</h1>
+<p class="t44 w5 c-w8" data-m data-d="1100">Cada mensagem vira venda.<br>Cada venda puxa a próxima.</p>
+</div>
+</section>
+<!-- 02 -->
+<section class="s" data-title="Como vai ser essa conversa">
+<h2 class="h" data-m="words">Como vai ser essa conversa</h2>
+<div class="f1 col jc">
+<div class="track"><div class="line"><i data-m="growX" data-d="500" style="animation-duration:1.6s"></i></div><span class="dot" style="left:0" data-m="pop" data-d="450"></span><span class="dot" style="left:33.4%" data-m="pop" data-d="950"></span><span class="dot" style="left:66.8%;background:var(--vd)" data-m="pop" data-d="1450"></span></div>
+<div class="row g48">
+<div class="f1 col g28" data-m data-d="500"><span class="step-n c-bd">01</span><p class="t36 w6 tp">A gente confirma com vocês o que está travando a venda.</p></div>
+<div class="f1 col g28" data-m data-d="1000"><span class="step-n c-bd">02</span><p class="t36 w6 tp">Vocês avaliam a solução que a gente trouxe.</p></div>
+<div class="f1 col g28" data-m data-d="1500"><span class="step-n c-vd">03</span><p class="t36 w6 tp">Se fizer sentido para os dois lados, aí sim a gente fala de investimento.</p></div>
+</div>
+</div>
+</section>
+<!-- 03 -->
+<section class="s" data-title="O que a Central já faz melhor">
+<h2 class="h" data-m="words">O que a Central já faz melhor que a maioria</h2>
+<div class="f1 row g32">
+<article class="pane f1" data-m="left" data-d="350"><div class="ph kb fn" style="width:380px"><img src="a/placa-1.webp" alt="Placa da Black CDA com o preço da semana"></div><div class="f1 col je g16" style="padding:0 16px 16px 0"><h3 class="t48 w8 c-bd tb">O preço atrai.</h3><p class="t26 w5 c-mu tp">O produto em oferta traz o produtor até a loja.</p></div></article>
+<article class="pane f1" data-m="right" data-d="550"><div class="ph kb fn" style="width:380px"><img src="a/c_agronomo3.webp" alt="Agrônomo da Central no pomar de manga"></div><div class="f1 col je g16" style="padding:0 16px 16px 0"><h3 class="t48 w8 c-vd tb">A técnica vende.</h3><p class="t26 w5 c-mu tp">No campo e no balcão, o agrônomo e o vendedor transformam uma visita numa compra maior.</p></div></article>
+</div>
+<div class="row ac g24" data-m data-d="900"><p class="t28 w6 tp" style="width:760px">O produtor chega pelo item anunciado e sai com a solução certa.</p><span style="width:4px;height:72px;background:var(--bd);border-radius:2px"></span><p class="f1 t28 w8 c-bd tp">O problema não está aqui. Está no que acontece antes e depois dessa conversa.</p></div>
+</section>
+<!-- 04 -->
+<section class="s" data-title="Campo e balcão">
+<h2 class="h" data-m="words">Campo e balcão não são o mesmo cliente</h2>
+<div class="f1 row g28">
+<article class="cc f1" style="background:var(--vd)" data-m="left" data-d="300"><div class="ph kb"><img src="a/c_campo2.webp" alt="Agrônomo avaliando manga no pé"></div><div class="cc-tx"><h3>CAMPO</h3><ul class="t28 w6 c-w col g8"><li>Carteira por região</li><li>Visita</li><li>Relação com o consultor</li></ul></div></article>
+<article class="cc f1" style="background:var(--bd)" data-m="right" data-d="450"><div class="ph kb"><img src="a/c_balcao3.webp" alt="Vendedor atendendo produtor no balcão da Central"></div><div class="cc-tx"><h3>BALCÃO</h3><ul class="t28 w6 c-w col g8"><li>Muito volume</li><li>Ciclo curto</li><li>Ninguém puxando a próxima compra</li></ul></div></article>
+</div>
+<div class="row g28">
+<div class="f1 col g12" data-m data-d="700"><div class="dots" data-n="1" data-d="800"></div><p class="t24 w6">Tem cliente que compra por mês</p></div>
+<div class="f1 col g12" data-m data-d="800"><div class="dots" data-n="4" data-d="900"></div><p class="t24 w6">Tem cliente que compra toda semana</p></div>
+<div class="f1 col g12" data-m data-d="900"><div class="dots" data-n="30" data-d="1000"></div><p class="t24 w6">Tem cliente que compra todo dia</p></div>
+</div>
+<p class="t44 w8 c-bd tb" data-m data-d="1800">Depois que o cliente de balcão paga e sai da loja, quem lembra dele?</p>
+</section>
+<!-- 05 -->
+<section class="s" data-title="Onde a conversa trava">
+<h2 class="h" data-m="words">Onde a conversa trava hoje</h2>
+<div class="f1 row g28">
+<div class="f1 row g40" style="background:var(--cr2);border-radius:28px;padding:24px" data-m data-d="250">
+<div class="phone wa-bg"><div class="ph-bar wa-bar"><svg class="bi"><use href="#b-whatsapp"/></svg>Central de Adubos</div>
+<div class="chat f1">
+<div class="msg me" data-m="pop" data-d="600">Quanto tá o saco da ureia?<small>21:00</small></div>
+<div class="row ac g8" data-m="pop" data-d="1000"><div class="msg sk"><i></i><i></i></div><span class="nb">1</span></div>
+<div class="row ac g8" data-m="pop" data-d="1250"><div class="msg sk"><i></i><i></i></div><span class="nb">2</span></div>
+<div class="row ac g8" data-m="pop" data-d="1500"><div class="msg sk"><i></i><i></i></div><span class="nb">3</span></div>
+<div class="row ac g8" data-m="pop" data-d="1750"><div class="msg sk"><i></i><i></i></div><span class="nb">4</span></div>
+<div class="row ac g8" data-m="pop" data-d="2000"><div class="msg sk"><i></i><i></i></div><span class="nb">5</span></div>
+<div class="row ac g8" data-m="pop" data-d="2250"><div class="msg sk"><i></i><i></i></div><span class="nb">6</span></div>
+</div></div>
+<div class="f1 col jc g20">
+<div class="row ac g12 t32 w8"><svg class="bi wa" style="font-size:44px"><use href="#b-whatsapp"/></svg>WhatsApp</div>
+<span class="num c-bd" style="font-size:200px"><span data-count="6" data-d="1000" data-dur="1500">6</span></span>
+<p class="t30 w7 tp">cerca de 6 mensagens do robô antes de chegar ao vendedor.</p>
+<p class="t24 w5 c-mu tp">Se o produtor escreve fora do menu, a conversa não anda.</p>
+</div>
+</div>
+<div class="f1 row g40" style="background:var(--cr2);border-radius:28px;padding:24px" data-m data-d="400">
+<div class="phone">
+<div class="row ac g16" style="padding:18px 16px 12px"><div class="avatar"><img src="a/simbolo-colorido.svg" alt="" style="width:30px"></div><div class="col g4"><b class="t16 w8">Central de Adubos</b><span class="t14 w6 c-g">107 mil seguidores</span></div></div>
+<div class="row g8" style="padding:0 16px 12px"><span class="ig-btn" style="background:#0095F6;color:#fff">Seguir</span><span class="ig-btn" style="background:#EFEFEF">Mensagem</span></div>
+<div class="ig-grid">
+<img src="a/placa-1.webp" alt="" data-m="pop" data-d="700"><img src="a/disparo-1.webp" alt="" data-m="pop" data-d="760"><img src="a/disparo-2.webp" alt="" data-m="pop" data-d="820">
+<img src="a/revelacao.webp" alt="" data-m="pop" data-d="880"><img src="a/black-sulfato.webp" alt="" data-m="pop" data-d="940"><img src="a/disparo-4.webp" alt="" data-m="pop" data-d="1000">
+<img src="a/maninho-danca.webp" alt="" data-m="pop" data-d="1060"><img src="a/quinta-no-talhao.webp" alt="" data-m="pop" data-d="1120"><img src="a/st-sulfato-1-psiu.webp" alt="" data-m="pop" data-d="1180">
+</div>
+<div class="f1 col je" style="padding:12px 14px 14px"><div class="row ac g8" style="padding:10px 14px;border-radius:12px;background:#FDECEF" data-m="pop" data-d="1600"><svg class="ic ig" style="font-size:20px"><use href="#i-send"/></svg><b class="t15 w8">Direct</b><span class="t15 w6 c-g">respondido na mão</span></div></div>
+</div>
+<div class="f1 col jc g20">
+<div class="row ac g12 t32 w8"><svg class="bi ig" style="font-size:44px"><use href="#b-instagram"/></svg>Instagram</div>
+<span class="num c-bd" style="font-size:150px"><span data-count="107" data-d="700">107</span> mil</span>
+<p class="t30 w7 tp">seguidores e o direct respondido na mão.</p>
+</div>
+</div>
+</div>
+<div class="row ac g24" data-m data-d="2400"><p class="t28 w6 tp" style="width:1000px">O produtor que pergunta o preço da ureia às 21h não quer escolher loja em menu.</p><p class="f1 t28 w8 c-bd tp">Ele quer preço. Se demora, pergunta no concorrente.</p></div>
+</section>
+<!-- 06 -->
+<section class="s" data-title="Venda sem origem">
+<h2 class="h" style="max-width:1500px" data-m="words">Quando a venda acontece, ninguém sabe de onde ela veio</h2>
+<div class="f1 row g64">
+<div class="col g20" style="width:940px">
+<div class="row ac g12" data-m data-d="300"><span class="t22 w7 c-mu">Como nasceram:</span><span class="chip t20 card" style="border-width:1px;padding:8px 14px"><svg class="bi ig"><use href="#b-instagram"/></svg>Instagram</span><span class="chip t20 card" style="border-width:1px;padding:8px 14px"><svg class="bi wa"><use href="#b-whatsapp"/></svg>WhatsApp</span><span class="chip t20 card" style="border-width:1px;padding:8px 14px"><svg class="ic"><use href="#i-store"/></svg>Balcão</span></div>
+<div class="win f1 col systab" style="background:#fff" data-m="scale" data-d="400">
+<div class="row ac g12" style="padding:14px 24px;background:var(--ink);color:#fff;font:700 18px/1 var(--pj)"><svg class="ic c-li" style="font-size:20px"><use href="#i-monitor"/></svg>Sistema de vendas · lançamentos do dia</div>
+<div class="r hd"><span>PEDIDO</span><span>CLIENTE</span><span>VALOR</span><span>LOJA</span><span>ORIGEM</span></div>
+<div class="r" data-m="left" data-d="600"><span class="row ac g8"><svg class="bi ig" style="opacity:.35;font-size:18px"><use href="#b-instagram"/></svg><b>#4821</b></span><span>Produtor 1</span><span>R$ 1.840</span><span>Petrolina</span><span class="nr" data-m="pop" data-d="1500">não registrada</span></div>
+<div class="r" data-m="left" data-d="680"><span class="row ac g8"><svg class="ic" style="opacity:.35;font-size:18px"><use href="#i-store"/></svg><b>#4822</b></span><span>Produtor 2</span><span>R$ 620</span><span>Juazeiro</span><span class="nr" data-m="pop" data-d="1580">não registrada</span></div>
+<div class="r" data-m="left" data-d="760"><span class="row ac g8"><svg class="bi wa" style="opacity:.35;font-size:18px"><use href="#b-whatsapp"/></svg><b>#4823</b></span><span>Produtor 3</span><span>R$ 3.150</span><span>Petrolina</span><span class="nr" data-m="pop" data-d="1660">não registrada</span></div>
+<div class="r" data-m="left" data-d="840"><span class="row ac g8"><svg class="ic" style="opacity:.35;font-size:18px"><use href="#i-store"/></svg><b>#4824</b></span><span>Produtor 4</span><span>R$ 290</span><span>Petrolina</span><span class="nr" data-m="pop" data-d="1740">não registrada</span></div>
+<div class="r" data-m="left" data-d="920"><span class="row ac g8"><svg class="bi wa" style="opacity:.35;font-size:18px"><use href="#b-whatsapp"/></svg><b>#4825</b></span><span>Produtor 5</span><span>R$ 2.410</span><span>Juazeiro</span><span class="nr" data-m="pop" data-d="1820">não registrada</span></div>
+<div class="r" data-m="left" data-d="1000" style="border:0"><span class="row ac g8"><svg class="bi ig" style="opacity:.35;font-size:18px"><use href="#b-instagram"/></svg><b>#4826</b></span><span>Produtor 6</span><span>R$ 760</span><span>Petrolina</span><span class="nr" data-m="pop" data-d="1900">não registrada</span></div>
+</div>
+<p class="t24 w6 c-mu" data-m data-d="2000">A venda que nasceu no digital entra no sistema igual à venda de balcão.</p>
+</div>
+<div class="f1 col jc">
+<div class="row ac g20" style="padding:22px 0;border-bottom:2px solid var(--ln)" data-m="right" data-d="900"><span class="num c-bd" style="font-size:72px">?</span><p class="t34 w7 tp">Quanto o Instagram faturou em outubro?</p></div>
+<div class="row ac g20" style="padding:22px 0;border-bottom:2px solid var(--ln)" data-m="right" data-d="1050"><span class="num c-bd" style="font-size:72px">?</span><p class="t34 w7 tp">Qual campanha deu retorno?</p></div>
+<div class="row ac g20" style="padding:22px 0;border-bottom:2px solid var(--ln)" data-m="right" data-d="1200"><span class="num c-bd" style="font-size:72px">?</span><p class="t34 w7 tp">Quem parou de comprar?</p></div>
+<div class="col g8" style="padding-top:28px" data-m data-d="2200"><p class="t26 w6 tp">Sem essas respostas, decisão de marketing vira opinião.</p><p class="t26 w8 c-bd tp">E o cliente perdido só aparece quando já está comprando em outro lugar.</p></div>
+</div>
+</div>
+</section>
+<!-- 07 -->
+<section class="s" data-title="Cashback e margem">
+<h2 class="h" data-m="words">O cashback que vocês querem e o medo que vocês têm</h2>
+<div class="row g28">
+<p class="f1 row ac g16 t30 w7 c-vd" data-m data-d="400"><svg class="ic" style="font-size:40px"><use href="#i-heart-handshake"/></svg>Vocês querem que o cliente volte mais rápido.</p>
+<p class="f1 row ac g16 t30 w7 c-bd" data-m data-d="550"><svg class="ic" style="font-size:40px"><use href="#i-shield-alert"/></svg>E têm medo de perder o controle da margem.</p>
+</div>
+<div class="f1 row g28">
+<div class="f1 col jc g24" style="background:var(--cr2);border-radius:28px;padding:48px" data-m="left" data-d="800">
+<div class="row ac g16 t40 w8 c-bd"><svg class="ic" style="font-size:48px"><use href="#i-flame"/></svg>Cashback sem regra</div>
+<p class="t32 w5 c-mu tp">queima margem e dá desconto para quem ia comprar de qualquer jeito.</p>
+</div>
+<div class="f1 col jc g24" style="background:var(--vd);border-radius:28px;padding:48px;color:#fff" data-m="right" data-d="1000">
+<div class="row ac g16 t40 w8"><svg class="ic c-li" style="font-size:48px"><use href="#i-shield-check"/></svg>Cashback com regra</div>
+<div class="row g12"><span class="chip t24" style="background:var(--li);color:var(--vd)" data-m="pop" data-d="1300">por categoria</span><span class="chip t24" style="background:var(--li);color:var(--vd)" data-m="pop" data-d="1420">com prazo</span><span class="chip t24" style="background:var(--li);color:var(--vd)" data-m="pop" data-d="1540">com limite</span></div>
+<p class="t32 w7">faz o cliente voltar antes.</p>
+</div>
+</div>
+<p class="t40 w8 tb" data-m data-d="1800">A diferença entre um e outro é ter dado na mão.</p>
+</section>
+<!-- 08 -->
+<section class="s" data-theme="vd" data-title="Quatro números">
+<h2 class="h" data-m="words">Quatro números que só vocês têm</h2>
+<div class="f1 row g24">
+<div class="f1 col g20 q4" data-m data-d="300"><span class="lbl c-li">01</span><p class="t32 w7 tp">Quantos clientes compraram com vocês nos últimos 12 meses?</p><span class="f1"></span><span class="num q c-li">?</span><i class="q4l"></i></div>
+<div class="f1 col g20 q4" data-m data-d="420"><span class="lbl c-li">02</span><p class="t32 w7 tp">Qual é o ticket médio de uma compra?</p><span class="f1"></span><span class="num q c-li">?</span><i class="q4l"></i></div>
+<div class="f1 col g20 q4" data-m data-d="540"><span class="lbl c-li">03</span><p class="t32 w7 tp">De quanto em quanto tempo um cliente volta a comprar?</p><span class="f1"></span><span class="num q c-li">?</span><i class="q4l"></i></div>
+<div class="f1 col g20 q4" data-m data-d="660"><span class="lbl c-li">04</span><p class="t32 w7 tp">Quantas conversas chegam no WhatsApp por mês?</p><span class="f1"></span><span class="num q c-li">?</span><i class="q4l"></i></div>
+</div>
+<style>.q4{padding:36px 32px;border-radius:24px;background:rgba(255,255,255,.07);border:2px solid rgba(255,255,255,.15)}.q4 .q{font-size:160px;line-height:.85}.s.play .q4 .q{animation:qbob 2.4s ease-in-out 1.2s infinite}@keyframes qbob{50%{transform:translateY(-10px)}}.q4l{display:block;height:3px;background:rgba(255,255,255,.3)}</style>
+</section>
+<!-- 09 -->
+<section class="s" data-title="O que a gente entendeu">
+<h2 class="h" data-m="words">O que a gente entendeu</h2>
+<div class="row ac g20" data-m data-d="300">
+<span class="chip t28 c-vd" style="background:rgba(15,61,38,.08)"><svg class="ic"><use href="#i-check"/></svg>A Central sabe atrair</span>
+<span class="chip t28 c-vd" style="background:rgba(15,61,38,.08)"><svg class="ic"><use href="#i-check"/></svg>e sabe vender.</span>
+<span class="t30 w8 c-bd">O dinheiro escapa em três pontos:</span>
+</div>
+<div class="f1 row g24">
+<div class="f1 col jb leak" data-m data-d="600"><div class="row jb as"><span class="num c-li" style="font-size:150px">1</span><svg class="ic c-w" style="font-size:64px"><use href="#i-message-circle-x"/></svg></div><p class="t36 w7 c-w tp">Na conversa que demora ou não chega ao vendedor.</p></div>
+<div class="f1 col jb leak" data-m data-d="780"><div class="row jb as"><span class="num c-li" style="font-size:150px">2</span><svg class="ic c-w" style="font-size:64px"><use href="#i-circle-help"/></svg></div><p class="t36 w7 c-w tp">Na venda que ninguém sabe de onde veio.</p></div>
+<div class="f1 col jb leak" data-m data-d="960"><div class="row jb as"><span class="num c-li" style="font-size:150px">3</span><svg class="ic c-w" style="font-size:64px"><use href="#i-user-x"/></svg></div><p class="t36 w7 c-w tp">No cliente que podia voltar antes e ninguém chamou.</p></div>
+</div>
+<div class="col g4" data-m data-d="1300"><p class="t30 w6 c-mu">Não é problema de produto, de preço nem de time técnico.</p><p class="t40 w8 tb">É a oportunidade que entra e se perde no meio do caminho.</p></div>
+<style>.leak{background:var(--bd);border-radius:28px;padding:40px;position:relative;overflow:hidden}.leak::after{content:"";position:absolute;left:40px;right:40px;bottom:0;height:6px;background:var(--li);transform:scaleX(0);transform-origin:left}.s.play .leak::after{animation:m-growx 1.2s var(--eo) calc(var(--d) + 500ms) both}</style>
+</section>
+<!-- 10 -->
+<section class="s" data-theme="vn" data-title="Antes de seguir">
+<h2 class="h" data-m="words">Antes de seguir</h2>
+<div class="col g24" style="padding:36px 40px;border-radius:28px;background:rgba(255,255,255,.08)" data-m data-d="300">
+<p class="t44 w8">De 0 a 10, quanto resolver isso é prioridade hoje?</p>
+<div class="row g12 scale10"></div>
+</div>
+<div class="f1 row g24">
+<div class="f1 col jb qq" data-m data-d="1400"><span class="lbl c-li">02</span><p class="t40 w7 tp">Por que ainda não foi resolvido?</p></div>
+<div class="f1 col jb qq" data-m data-d="1520"><span class="lbl c-li">03</span><p class="t40 w7 tp">O que faz agora ser diferente?</p></div>
+<div class="f1 col jb qq" data-m data-d="1640"><span class="lbl c-li">04</span><p class="t40 w7 tp">Quem mais precisa estar nessa decisão?</p></div>
+</div>
+<style>.qq{padding:32px 36px;border:2px solid rgba(255,255,255,.22);border-radius:24px}.scale10 span{flex:1;height:96px;border-radius:16px;background:rgba(255,255,255,.12);display:grid;place-items:center;font:700 48px/1 var(--bc)}.scale10 span.hi{background:var(--li);color:var(--vn);box-shadow:0 0 0 0 rgba(198,213,47,.5)}.s.play .scale10 span.hi{animation:m-pop .6s var(--eo) var(--d) both,live2 2.4s ease-out calc(var(--d) + 800ms) infinite}@keyframes live2{0%{box-shadow:0 0 0 0 rgba(198,213,47,.45)}70%,100%{box-shadow:0 0 0 18px rgba(198,213,47,0)}}</style>
+</section>
+<!-- 11 -->
+<section class="s" data-title="Por que a gente avança">
+<div class="f1 col jc g40">
+<p class="lbl c-bd" data-m data-d="200">Por que a gente avança com vocês</p>
+<p class="h" style="font-size:80px" data-m="words" data-d="300">A Central já tem demanda e técnica de venda.</p>
+<p class="h c-bd" style="font-size:80px" data-m="words" data-d="800">A receita está escapando entre uma compra e outra.</p>
+<div class="row ac g20" data-m data-d="1500"><span class="t44 w6">E vocês querem resolver isso agora porque</span><span class="t44 w8 c-vd motivo">[motivo da sala]</span></div>
+</div>
+<style>.motivo{background:var(--li);padding:10px 26px;border-radius:12px;position:relative}.motivo::after{content:"";position:absolute;right:12px;top:16px;bottom:16px;width:3px;background:var(--vd);animation:caret 1s steps(1) infinite}@keyframes caret{50%{opacity:0}}</style>
+</section>
+<!-- 12 -->
+<section class="s" data-theme="vd" data-title="A Central daqui a 60 dias">
+<h2 class="h" data-m="words">Agora imagina a Central daqui a 60 dias</h2>
+<div class="f1 col jc">
+<div class="jr">
+<div class="k col g28 rel"><span class="con" data-m="growX" data-d="700"></span><span class="bdg" data-m="pop" data-d="400"><svg class="bi"><use href="#b-meta"/></svg></span><span class="num c-li" style="font-size:80px" data-m data-d="450">01</span><p class="t30 w6 tp" data-m data-d="500">O anúncio roda e traz seguidor que planta, que compra e que é da região.</p></div>
+<div class="k col g28 rel"><span class="con" data-m="growX" data-d="1050"></span><span class="bdg" data-m="pop" data-d="750"><span class="row g8"><svg class="bi" style="font-size:34px"><use href="#b-instagram"/></svg><svg class="bi" style="font-size:34px"><use href="#b-whatsapp"/></svg></span></span><span class="num c-li" style="font-size:80px" data-m data-d="800">02</span><p class="t30 w6 tp" data-m data-d="850">Ele chama no direct ou no WhatsApp, a qualquer hora.</p></div>
+<div class="k col g28 rel"><span class="con" data-m="growX" data-d="1400"></span><span class="bdg" data-m="pop" data-d="1100"><svg class="ic"><use href="#i-bot"/></svg></span><span class="num c-li" style="font-size:80px" data-m data-d="1150">03</span><p class="t30 w6 tp" data-m data-d="1200">Uma inteligência artificial responde na hora, entende o que ele precisa e faz a triagem.</p></div>
+<div class="k col g28 rel"><span class="con" data-m="growX" data-d="1750"></span><span class="bdg" data-m="pop" data-d="1450"><svg class="ic"><use href="#i-user-check"/></svg></span><span class="num c-li" style="font-size:80px" data-m data-d="1500">04</span><p class="t30 w6 tp" data-m data-d="1550">O vendedor da loja certa só entra quando a compra já está certa.</p></div>
+<div class="k col g28 rel"><span class="con" data-m="growX" data-d="2100"></span><span class="bdg" data-m="pop" data-d="1800"><svg class="ic"><use href="#i-link"/></svg></span><span class="num c-li" style="font-size:80px" data-m data-d="1850">05</span><p class="t30 w6 tp" data-m data-d="1900">A venda acontece e é cruzada com o sistema de vocês.</p></div>
+<div class="k col g28 rel"><span class="bdg" data-m="pop" data-d="2150"><svg class="ic"><use href="#i-chart-column"/></svg></span><span class="num c-li" style="font-size:80px" data-m data-d="2200">06</span><p class="t30 w6 tp" data-m data-d="2250">Na segunda-feira, vocês sabem quanto o digital vendeu na semana.</p></div>
+</div>
+</div>
+</section>
+<!-- 13 -->
+<section class="s" data-title="A venda não termina na venda">
+<h2 class="h" data-m="words">E a venda não termina na venda</h2>
+<div class="f1 row g48">
+<div class="col g20" style="width:600px">
+<p class="t30 w7 c-mu" data-m data-d="300">Cada cliente separado por:</p>
+<div class="seg" data-m="left" data-d="400"><svg class="ic c-bd"><use href="#i-calendar-clock"/></svg>última compra</div>
+<div class="seg" data-m="left" data-d="500"><svg class="ic c-bd"><use href="#i-coins"/></svg>custo para trazer</div>
+<div class="seg" data-m="left" data-d="600"><svg class="ic c-bd"><use href="#i-sprout"/></svg>cultura</div>
+<div class="seg" data-m="left" data-d="700"><svg class="ic c-bd"><use href="#i-trending-up"/></svg>retorno do anúncio</div>
+</div>
+<div class="f1 col g32" style="background:var(--vd);border-radius:28px;padding:40px 48px;color:#fff" data-m="scale" data-d="500">
+<div class="row ac g20"><span class="badge" style="width:72px;height:72px;background:rgba(198,213,47,.18);color:var(--li);font-size:36px"><svg class="ic"><use href="#i-sprout"/></svg></span><p class="f1 t30 w7 tp">O produtor de manga que sempre volta em 40 dias e está há 60 sem aparecer</p></div>
+<div class="col g12">
+<div class="rg"><i class="a" data-m="growX" data-d="900" style="animation-duration:1.2s"></i><i class="b" data-m="growX" data-d="2000"></i></div>
+<div class="rgl"><span style="left:0">dia 0<small>última compra</small></span><span style="left:66.67%;transform:translateX(-50%);align-items:center" data-m="fade" data-d="1900">dia 40<small>volta normal</small></span><span style="right:0;align-items:flex-end" data-m="fade" data-d="2500">dia 60<small>hoje</small></span></div>
+</div>
+<div class="row ac g16" style="align-self:flex-start;background:#fff;color:var(--ink);padding:20px 26px;border-radius:24px 24px 24px 6px" data-m="pop" data-d="2900"><svg class="bi wa" style="font-size:40px"><use href="#b-whatsapp"/></svg><svg class="ic c-bd" style="font-size:32px"><use href="#i-gift"/></svg><span class="t26 w7">recebe uma mensagem com o bônus dele perto de vencer</span></div>
+<div class="f1 col je"><p class="t48 w8 c-li" data-m data-d="3400" style="font-size:60px;line-height:1.04;letter-spacing:-.03em">Ele volta antes.<br>E leva mais.</p></div>
+</div>
+</div>
+<p class="t34 w8 c-bd" data-m data-d="3700">Menos tempo entre uma compra e outra. Mais valor em cada pedido.</p>
+<style>.seg{display:flex;align-items:center;gap:20px;padding:24px 28px;background:#fff;border:2px solid var(--ln);border-radius:20px;font:700 34px/1 var(--pj)}.seg .ic{font-size:38px}</style>
+</section>
+<!-- 14 -->
+<section class="s" data-theme="bd" data-title="Uma pergunta antes da solução">
+<div class="f1 col jc g40">
+<p class="lbl c-li" data-m data-d="200">Uma pergunta antes da solução</p>
+<p class="h" style="font-size:88px;max-width:1600px" data-m="words" data-d="350">Se a V4 trouxer uma solução que coloca esse cenário de pé, existe alguma objeção para a gente implementar?</p>
+</div>
+</section>
+<!-- 15 -->
+<section class="s" data-theme="ink" data-title="Quem já faz">
+<h2 class="h" style="max-width:1500px" data-m="words">Quem vende para cliente que precisa voltar já faz isso</h2>
+<div class="f1 row g28">
+<div class="f1 col g28 case" data-m data-d="400">
+<div class="row ac g32" style="height:56px"><img src="a/authenticfeet.png" alt="Authentic Feet" style="height:26px"><img src="a/artwalk.svg" alt="Artwalk" style="height:34px"><img src="a/magicfeet.png" alt="Magic Feet" style="height:40px"></div>
+<p class="t24 w5 c-w6">Grupo Afeet · Authentic Feet, Artwalk e Magic Feet · 206 lojas físicas</p>
+<div class="f1 row ae g40">
+<div class="f1 col g8"><span class="num c-li" style="font-size:120px"><span data-count="100" data-d="800">100</span> mil</span><p class="t26 w6">clientes voltaram a comprar</p></div>
+<div class="f1 col g8"><span class="num c-li" style="font-size:120px">+<span data-count="11" data-d="900">11</span>%</span><p class="t26 w6">de faturamento</p></div>
+</div>
+</div>
+<div class="f1 col g28 case" data-m data-d="550">
+<div class="row ac" style="height:56px"><img src="a/corello-white.svg" alt="Corello" style="height:40px"></div>
+<p class="t24 w5 c-w6">Corello · calçados e bolsas · 26 lojas próprias e loja online</p>
+<div class="f1 row ae g40">
+<div class="f1 col g8"><span class="num c-li" style="font-size:120px"><span data-count="12" data-d="1000">12</span>%</span><p class="t26 w6">das vendas em 2023 vieram do cashback</p></div>
+<div class="f1 col g8"><span class="num c-li" style="font-size:120px"><span data-count="20" data-d="1100">20</span> mil</span><p class="t26 w6">clientes trazidos de volta</p></div>
+</div>
+</div>
+</div>
+<div class="row ae jb g40" data-m data-d="1300">
+<div class="col g4" style="max-width:1240px"><p class="t26 w6 c-w8">Não é agro. É a mesma lógica: loja física, várias unidades, cliente que precisa voltar.</p><p class="t28 w8">Eles não inventaram cliente novo. Pararam de perder o que já tinham.</p></div>
+<div class="row ac g12"><span class="t16 w5 c-w6">Fonte: cases publicados pela</span><img src="a/crmbonus-white.png" alt="CRM Bônus" style="height:22px"></div>
+</div>
+<style>.case{padding:40px 44px;border-radius:28px;background:rgba(255,255,255,.05);border:2px solid rgba(255,255,255,.12)}</style>
+</section>
+<!-- 16 -->
+<section class="s" data-title="Quatro peças">
+<h2 class="h" data-m="words">Para chegar lá, quatro peças</h2>
+<div class="f1 row g24">
+<div class="pc" style="background:var(--ink)" data-m data-d="300"><span class="num c-li" style="font-size:40px">01</span><div class="row ac" style="height:80px"><img src="a/manychat-white.svg" alt="ManyChat" style="height:46px"></div><p class="t30 w6 tp">Ninguém fica sem resposta no Instagram.</p></div>
+<div class="pc" style="background:var(--vd)" data-m data-d="420"><span class="num c-li" style="font-size:40px">02</span><div class="row ac g16" style="height:80px"><svg class="ic c-li" style="font-size:56px"><use href="#i-bot"/></svg><span class="t48 w8">SDR IA</span></div><p class="t30 w6 tp">O WhatsApp atende, qualifica e entrega o pedido pronto ao vendedor.</p></div>
+<div class="pc" style="background:var(--bd)" data-m data-d="540"><span class="num c-li" style="font-size:40px">03</span><div class="row ac g16" style="height:80px"><svg class="ic c-li" style="font-size:56px"><use href="#i-chart-column"/></svg><span class="t44 w8">Painel (BI)</span></div><p class="t30 w6 tp">Vocês sabem quanto o digital vende e quem parou de comprar.</p></div>
+<div class="pc" style="background:var(--ink)" data-m data-d="660"><span class="num c-li" style="font-size:40px">04</span><div class="row ac" style="height:80px"><img src="a/crmbonus-white.png" alt="CRM Bônus" style="height:50px"></div><p class="t30 w6 tp">O cashback que faz o cliente voltar antes.</p></div>
+</div>
+<div class="row g24">
+<div class="col g16" style="width:calc(50% - 12px)"><i class="key" style="background:var(--vd)" data-m="growX" data-d="1000"></i><p class="t26 w7" data-m data-d="1100">As duas primeiras transformam conversa em venda.</p></div>
+<div class="f1 col g16"><i class="key" style="background:var(--bd)" data-m="growX" data-d="1250"></i><p class="t26 w7 tp" data-m data-d="1350">A terceira mostra de onde a venda veio e quem está sumindo.</p></div>
+<div class="f1 col g16"><i class="key" style="background:var(--ink)" data-m="growX" data-d="1500"></i><p class="t26 w7 tp" data-m data-d="1600">A quarta traz esse cliente de volta.</p></div>
+</div>
+<style>.pc{flex:1;display:flex;flex-direction:column;justify-content:space-between;gap:24px;padding:36px;border-radius:28px;color:#fff}.key{display:block;height:6px;border-radius:3px}</style>
+</section>
+<!-- 17 -->
+<section class="s" data-title="ManyChat">
+<div class="f1 row g56">
+<div class="f1 col g28">
+<img src="a/manychat-white.svg" alt="ManyChat" style="height:46px;align-self:flex-start;filter:brightness(0)" data-m data-d="100">
+<h2 class="h" style="font-size:68px" data-m="words" data-d="200">O Instagram para de perder gente</h2>
+<div class="hoje" data-m data-d="500"><b>HOJE</b><p class="t26 w6">107 mil seguidores e o direct respondido na mão.</p></div>
+<ol class="col g16 nlist" data-m data-d="650"><li><b>01</b>Responde na hora, 24 horas, no direct, em comentário e em resposta de story.</li><li><b>02</b>Pergunta nome, interesse e cidade.</li><li><b>03</b>Quem quer comprar segue para o WhatsApp da loja certa.</li></ol>
+<div class="f1 col je g16" data-m data-d="800"><p class="t20 w5 c-mu tp">O que entregamos: até 5 automações (boas-vindas, palavra-chave, resposta a story e qualificação) e ajuste toda semana.</p><span class="pill"><svg class="ic"><use href="#i-calendar-check"/></svg>No ar em 15 dias</span></div>
+</div>
+<div class="row ac g24 fn">
+<div class="phone" style="height:100%" data-m="right" data-d="400">
+<div class="row ac g12" style="padding:14px 16px;border-bottom:1px solid var(--lnb)"><div class="avatar" style="width:36px;height:36px;border-width:2px"><img src="a/simbolo-colorido.svg" alt="" style="width:16px"></div><b class="t16 w8">Central de Adubos</b></div>
+<div class="ph" style="border-radius:0;height:470px;flex:none"><img src="a/placa-1.webp" alt="Post da Black CDA"></div>
+<div class="row g16" style="padding:12px 16px;font-size:24px"><svg class="ic"><use href="#i-heart"/></svg><svg class="ic"><use href="#i-message-circle"/></svg><svg class="ic"><use href="#i-send"/></svg></div>
+<div class="col g8" style="padding:0 16px 16px"><span class="t14 c-g">Ver os comentários</span><div class="row ac g12" style="padding:10px 12px;border-radius:12px;background:#FDECEF" data-m="pop" data-d="1100"><i style="width:28px;height:28px;border-radius:50%;background:#C9B79C;display:block"></i><b class="t15 w8">produtor</b><b class="t18 w8 c-bd">preço</b></div></div>
+</div>
+<svg class="ic c-bd" style="font-size:40px" data-m="left" data-d="1500"><use href="#i-arrow-right"/></svg>
+<div class="phone" style="height:100%" data-m="right" data-d="1500">
+<div class="row ac g12" style="padding:14px 16px;border-bottom:1px solid var(--lnb)"><div class="avatar" style="width:36px;height:36px;border-width:2px"><img src="a/simbolo-colorido.svg" alt="" style="width:16px"></div><b class="t16 w8">Central de Adubos</b><span class="t14 c-g">· direct</span></div>
+<div class="chat f1" style="gap:12px">
+<span class="lbl-s c-g" style="font-size:16px">Na mesma hora</span>
+<div class="typing" data-m="typing" data-d="1800"><i></i><i></i><i></i></div>
+<div class="msg" style="background:#EFEFEF;border-radius:4px 20px 20px 20px;font-size:19px" data-m="pop" data-d="2600">Opa! Te mando a condição agora. Você é de qual cidade?</div>
+<div class="msg me" style="background:#3797F0;color:#fff;border-radius:20px 4px 20px 20px;font-size:19px" data-m="pop" data-d="3300">Juazeiro. É pra uva.</div>
+<div class="col g8" style="padding:14px 16px;border-radius:14px;background:var(--cr)" data-m="pop" data-d="3800"><span class="lbl-s c-g" style="font-size:15px">O que o ManyChat guarda</span>
+<span class="row ac g8 t16"><svg class="ic c-vd" style="font-size:18px"><use href="#i-circle-check"/></svg><span class="c-g w6">Nome</span><b class="w8">produtor</b></span>
+<span class="row ac g8 t16"><svg class="ic c-vd" style="font-size:18px"><use href="#i-circle-check"/></svg><span class="c-g w6">Interesse</span><b class="w8">uva</b></span>
+<span class="row ac g8 t16"><svg class="ic c-vd" style="font-size:18px"><use href="#i-circle-check"/></svg><span class="c-g w6">Cidade</span><b class="w8">Juazeiro</b></span></div>
+<div class="f1 col je"><div class="col g8" style="padding:16px 18px;border-radius:16px;background:rgba(37,211,102,.14)" data-m="pop" data-d="4400"><svg class="bi wa" style="font-size:34px"><use href="#b-whatsapp"/></svg><b class="t20 w8 c-vd">Cai no WhatsApp da loja de Juazeiro.</b></div></div>
+</div>
+</div>
+</div>
+</div>
+<style>.nlist li{display:flex;gap:16px;font:600 25px/1.3 var(--pj)}.nlist b{font:700 25px/1.3 var(--bc);color:var(--bd)}</style>
+</section>
+<!-- 18 -->
+<section class="s" data-title="SDR IA">
+<div class="row ae g48">
+<h2 class="h" style="width:1100px;font-size:70px" data-m="words">SDR IA: o vendedor só entra quando a compra está certa</h2>
+<div class="f1 hoje" data-m data-d="500"><b>HOJE</b><p class="t26 w6">menu de robô, cerca de 6 mensagens e conversa que trava.</p></div>
+</div>
+<div class="f1 col">
+<div class="f1 row g48 sdr"><div class="f1" data-m data-d="400"><b>01</b><p>Atende na hora, 24 horas, todos os dias.</p></div><div class="f1" data-m data-d="500"><b>02</b><p>Entende o que o produtor escreve, sem menu.</p></div><div class="f1" data-m data-d="600"><b>03</b><p>Descobre cidade, cultura, produto, quantidade e prazo.</p></div></div>
+<div class="f1 row g48 sdr b2"><div class="f1" data-m data-d="700"><b>04</b><p>Separa quem vai comprar de quem só está pesquisando.</p></div><div class="f1" data-m data-d="800"><b>05</b><p>Passa para o vendedor da unidade com o resumo pronto e avisa ele.</p></div><div class="f1" data-m data-d="900"><b>06</b><p>Pede CPF ou CNPJ quando a compra está certa, para ligar a venda ao sistema.</p></div></div>
+</div>
+<div class="row ac jb" style="padding:24px 32px;border-radius:22px;background:var(--vd);color:#fff" data-m data-d="1200"><span class="row ac g16 t34 w8"><svg class="ic c-li" style="font-size:40px"><use href="#i-bot"/></svg>Não substitui o vendedor. Trabalha para ele.</span><span class="t24 w7 c-li">Treinada no jeito da Central. No ar em até 30 dias.</span></div>
+<style>.sdr>div{display:flex;flex-direction:column;gap:14px;padding-top:28px;border-top:4px solid var(--bd)}.sdr.b2>div{border-top:2px solid var(--ln)}.sdr b{font:700 64px/1 var(--bc);color:var(--bd)}.sdr p{font:700 32px/1.25 var(--pj);text-wrap:pretty}</style>
+</section>
+<!-- 19 -->
+<section class="s" data-title="Como fica a conversa">
+<h2 class="h" data-m="words">Como fica a conversa</h2>
+<div class="f1 row g40">
+<div class="win col" style="width:1080px;background:#EFEAE2" data-m="scale" data-d="200">
+<div class="ph-bar wa-bar" style="padding:16px 24px;font-size:22px"><svg class="bi" style="font-size:30px"><use href="#b-whatsapp"/></svg>Central de Adubos <span class="w5" style="opacity:.7">· SDR IA</span><span class="f1"></span><span class="row ac g8 t15 w6" style="opacity:.8"><i class="live" style="background:#25D366"></i>online</span></div>
+<div class="chat f1 jc conv" style="padding:20px 28px;gap:10px">
+<div class="msg" data-m="pop" data-d="500"><b class="t14" style="color:#0A7C66">Produtor · 21:40</b><br>Boa noite, tem ureia? Quanto tá o saco?</div>
+<div class="typing me" data-m="typing" data-d="1000"><i></i><i></i><i></i></div>
+<div class="msg me" data-m="pop" data-d="1800">Boa noite! Tem sim. Pra te passar a melhor condição, você é de qual cidade?</div>
+<div class="msg" data-m="pop" data-d="2600">Petrolina.</div>
+<div class="typing me" data-m="typing" data-d="2900"><i></i><i></i><i></i></div>
+<div class="msg me" data-m="pop" data-d="3700">Show. É pra qual cultura e mais ou menos quantos sacos?</div>
+<div class="msg" data-m="pop" data-d="4400">Manga. Uns 40.</div>
+<div class="typing me" data-m="typing" data-d="4700"><i></i><i></i><i></i></div>
+<div class="msg me" data-m="pop" data-d="5500">Precisa pra quando? Retira na loja ou quer entrega?</div>
+<div class="msg" data-m="pop" data-d="6200">Semana que vem, com entrega.</div>
+<div class="typing me" data-m="typing" data-d="6500"><i></i><i></i><i></i></div>
+<div class="msg me" data-m="pop" data-d="7300">Fechado! Já passei pro vendedor da loja de Petrolina, ele te chama amanhã cedo com o preço. Pra deixar seu cadastro pronto, me passa seu CPF ou CNPJ?</div>
+</div>
+</div>
+<div class="f1 col g16" style="background:var(--vd);border-radius:28px;padding:36px;color:#fff" data-m="right" data-d="400">
+<div class="row ac g12 t34 w8"><svg class="ic c-li" style="font-size:36px"><use href="#i-bell-ring"/></svg>O vendedor recebe</div>
+<div class="vr" data-m="left" data-d="2700"><svg class="ic"><use href="#i-map-pin"/></svg>Petrolina</div>
+<div class="vr" data-m="left" data-d="3800"><svg class="ic"><use href="#i-sprout"/></svg>manga</div>
+<div class="vr" data-m="left" data-d="3900"><svg class="ic"><use href="#i-package"/></svg>ureia</div>
+<div class="vr" data-m="left" data-d="4500"><svg class="ic"><use href="#i-layers"/></svg>40 sacos</div>
+<div class="vr" data-m="left" data-d="6300"><svg class="ic"><use href="#i-truck"/></svg>entrega na semana que vem</div>
+<div class="vr ok" data-m="left" data-d="8000"><svg class="ic"><use href="#i-badge-check"/></svg>cadastro ok</div>
+</div>
+</div>
+<style>.conv .msg{font-size:23px;max-width:820px;padding:12px 18px}.vr{display:flex;align-items:center;gap:16px;padding:16px 20px;border-radius:14px;background:rgba(255,255,255,.08);font:700 28px/1 var(--pj)}.vr .ic{font-size:28px;color:var(--li)}.vr.ok{background:var(--li);color:var(--vd)}.vr.ok .ic{color:var(--vd)}</style>
+</section>
+<!-- 20 -->
+<section class="s" data-title="Painel de vendas · clientes">
+<div class="f1 row g56">
+<div class="col g24" style="width:600px">
+<h2 class="h" style="font-size:58px" data-m="words">Painel de vendas (BI): o faturamento do digital aparece</h2>
+<div class="hoje" data-m data-d="400"><b>HOJE</b><p class="t26 w6">a venda do digital some no meio da venda de balcão.</p></div>
+<ol class="col g12 nlist" data-m data-d="550"><li><b>01</b>Junta anúncio, atendimento e venda num painel só.</li><li><b>02</b>Mostra quanto cada campanha trouxe de receita e de retorno.</li><li><b>03</b>Separa os clientes por última compra, custo para trazer, cultura e retorno do anúncio.</li><li><b>04</b>Aponta quem passou do tempo normal de voltar.</li></ol>
+<div class="f1 col je g16" data-m data-d="700"><p class="t18 w5 c-mu tp">O que entregamos: painéis com a cara da Central, ligação entre atendimento e mídia, padrão único de métricas e treinamento do time. Depois, manutenção mensal para o número estar sempre certo.</p><span class="pill"><svg class="ic"><use href="#i-calendar-check"/></svg>Pronto em 3 semanas</span></div>
+</div>
+<div class="f1 win row" data-m="scale" data-d="300">
+<nav class="side fn" style="width:68px"><img src="a/simbolo-branco.svg" alt="" style="width:30px"><span class="it"><svg class="ic"><use href="#i-layout-dashboard"/></svg></span><span class="it"><svg class="ic"><use href="#i-megaphone"/></svg></span><span class="it on"><svg class="ic"><use href="#i-users"/></svg></span><span class="it"><svg class="ic"><use href="#i-store"/></svg></span></nav>
+<div class="f1 col g16" style="padding:18px 22px">
+<div class="row ac jb"><div class="row ac g12"><b class="t22 w8">Clientes</b><span class="fl on"><svg class="ic"><use href="#i-store"/></svg>Loja: Petrolina</span><span class="fl"><svg class="ic"><use href="#i-radio"/></svg>Todos os canais</span></div><span class="tag-ex">EXEMPLO</span></div>
+<div class="bcard" data-m data-d="500">
+<div class="row ac jb"><b class="bh">Clientes por tempo sem comprar</b><span class="t14 w6 c-g">em relação ao ciclo de cada cultura</span></div>
+<div class="mx" data-mx></div>
+</div>
+<div class="bcard f1" data-m data-d="1700">
+<div class="row ac jb"><b class="bh c-bd">Manga · passou do prazo · 120 clientes</b><span class="wbtn"><svg class="bi"><use href="#b-whatsapp"/></svg>Mandar lembrete do bônus</span></div>
+<div class="ltab col">
+<div class="r hd"><span>Cliente</span><span>Última compra</span><span>Ticket médio</span><span>Bônus</span></div>
+<div class="r" data-m="left" data-d="1900"><b>J. S. Almeida</b><span class="c-bd">há 62 dias</span><span>R$ 2.340</span><span class="bon">vence em 3 dias</span></div>
+<div class="r" data-m="left" data-d="1980"><b>Fazenda M. Rocha</b><span class="c-bd">há 58 dias</span><span>R$ 4.180</span><span class="bon">vence em 5 dias</span></div>
+<div class="r" data-m="left" data-d="2060"><b>A. P. Nunes</b><span class="c-bd">há 55 dias</span><span>R$ 1.260</span><span class="bon">vence em 8 dias</span></div>
+<div class="r" data-m="left" data-d="2140"><b>Sítio Boa Vista</b><span class="c-bd">há 54 dias</span><span>R$ 3.020</span><span class="bon">vence em 9 dias</span></div>
+<div class="r" data-m="left" data-d="2220" style="border:0"><b>R. F. Lima</b><span class="c-bd">há 51 dias</span><span>R$ 980</span><span class="bon">vence em 12 dias</span></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- 21 -->
+<section class="s" data-title="Painel na segunda-feira" style="gap:28px">
+<div class="row ae jb g40"><h2 class="h" style="font-size:60px" data-m="words">Como fica o painel na segunda-feira</h2><div class="col g4" style="width:640px" data-m data-d="300"><p class="t24 w7">Já dá para saber onde investir e quem chamar.</p><p class="t24 w7 c-bd">Acabou reunião discutindo qual número está certo.</p></div></div>
+<div class="f1 win row" data-m="scale" data-d="200">
+<nav class="side fn" style="width:76px"><img src="a/simbolo-branco.svg" alt="" style="width:32px"><span class="it on"><svg class="ic"><use href="#i-layout-dashboard"/></svg></span><span class="it"><svg class="ic"><use href="#i-megaphone"/></svg></span><span class="it"><svg class="ic"><use href="#i-users"/></svg></span><span class="it"><svg class="ic"><use href="#i-store"/></svg></span><span class="it"><svg class="ic"><use href="#i-settings"/></svg></span></nav>
+<div class="f1 col g16" style="padding:18px 22px">
+<div class="row ac jb"><div class="row ac g12"><b class="t22 w8">Visão geral</b><span class="fl on"><svg class="ic"><use href="#i-calendar"/></svg>02 a 08/11</span><span class="fl"><svg class="ic"><use href="#i-store"/></svg>Todas as lojas</span><span class="fl"><svg class="ic"><use href="#i-radio"/></svg>Canal: digital</span></div><div class="row ac g12"><i class="live"></i><span class="t14 w6 c-g">Atualizado segunda, 7h</span><span class="tag-ex">EXEMPLO</span></div></div>
+<div class="row g16">
+<div class="bcard kpi f1" data-m data-d="400"><span class="lab">Receita que veio do digital</span><div class="row ae jb"><span class="val">R$ <span data-count="184" data-d="500">184</span> mil</span><div class="spark" data-spark="98,112,120,131,152,184" data-d="700"></div></div><span class="dl"><svg class="ic"><use href="#i-trending-up"/></svg>+21% vs semana anterior</span></div>
+<div class="bcard kpi f1" data-m data-d="500"><span class="lab">Retorno da Black CDA (R$ por R$ 1)</span><div class="row ae jb"><span class="val">R$ <span data-count="9" data-d="600">9</span></span><div class="spark" data-spark="5.1,6,6.8,7.8,9" data-d="800"></div></div><span class="dl"><svg class="ic"><use href="#i-trending-up"/></svg>+1,2 vs semana anterior</span></div>
+<div class="bcard kpi f1" data-m data-d="600"><span class="lab">Custo para trazer um cliente novo</span><div class="row ae jb"><span class="val">R$ <span data-count="38" data-from="52" data-d="700">38</span></span><div class="spark" data-spark="52,49,46,43,38" data-d="900"></div></div><span class="dl"><svg class="ic"><use href="#i-trending-down"/></svg>12% mais barato</span></div>
+<div class="bcard kpi hot f1" data-m data-d="700"><span class="lab">Manga · Petrolina fora do prazo</span><div class="row ae jb"><span class="val"><span data-count="120" data-d="800">120</span></span><div class="spark" data-spark="60,72,85,96,102,120" data-d="1000"></div></div><span class="dl"><svg class="ic"><use href="#i-phone-call"/></svg>clientes para chamar hoje</span></div>
+</div>
+<div class="f1 row g16">
+<div class="bcard f1" data-m data-d="800"><div class="row ac jb"><b class="bh">Receita do digital por semana</b><span class="t14 w6 c-g">R$ mil</span></div>
+<div class="bars" data-bars="05/10:98,12/10:112,19/10:120,26/10:131,01/11:152,08/11:184" data-d="1000"></div></div>
+<div class="bcard ctab" style="width:560px" data-m data-d="900"><div class="row ac jb"><b class="bh">Receita por campanha</b><svg class="bi meta" style="font-size:20px"><use href="#b-meta"/></svg></div>
+<div class="r hd"><span>Campanha</span><span>Receita</span><span>Retorno</span></div>
+<div class="r first"><b>Black CDA</b><span>R$ 153 mil</span><span class="ret">9,0x</span><i class="bar" style="width:100%" data-m="growX" data-d="1300"></i></div>
+<div class="r"><b>Instagram sempre ativo</b><span>R$ 21 mil</span><span class="ret">4,2x</span><i class="bar" style="width:13.7%" data-m="growX" data-d="1400"></i></div>
+<div class="r"><b>Radar da Uva</b><span>R$ 10 mil</span><span class="ret">orgânico</span><i class="bar" style="width:6.5%" data-m="growX" data-d="1500"></i></div>
+<div class="row jb" style="padding-top:4px"><span class="t15 w7 c-g">Total do digital</span><b class="t16 w8">R$ 184 mil</b></div>
+</div>
+</div>
+<div class="row g16">
+<div class="bcard f1" data-m data-d="1100"><b class="bh">Do WhatsApp à venda</b>
+<div class="fun"><div class="st"><b><span data-count="1180" data-d="1300">1.180</span></b><span>Conversas</span></div><div class="cv"><svg class="ic"><use href="#i-chevron-right"/></svg>35%</div><div class="st"><b><span data-count="412" data-d="1450">412</span></b><span>Qualificadas pela IA</span></div><div class="cv"><svg class="ic"><use href="#i-chevron-right"/></svg>52%</div><div class="st"><b><span data-count="214" data-d="1600">214</span></b><span>Passadas ao vendedor</span></div><div class="cv"><svg class="ic"><use href="#i-chevron-right"/></svg>45%</div><div class="st end"><b><span data-count="96" data-d="1750">96</span></b><span>Vendas no sistema</span></div></div>
+</div>
+<div class="bcard" style="width:560px;gap:6px" data-m data-d="1200"><div class="row ac jb"><b class="bh">Quem chamar esta semana</b><span class="wbtn"><svg class="bi"><use href="#b-whatsapp"/></svg>Mandar lembrete do bônus</span></div>
+<div class="qrow hot" data-m="left" data-d="1500"><span><i></i>Manga · Petrolina</span><b>120 clientes</b></div>
+<div class="qrow" data-m="left" data-d="1580"><span><i></i>Uva · Juazeiro</span><b>48 clientes</b></div>
+<div class="qrow" data-m="left" data-d="1660"><span><i></i>Cebola · Petrolina</span><b>35 clientes</b></div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- 22 -->
+<section class="s" data-title="CRM Bônus">
+<div class="row ae jb"><h2 class="h" style="width:1260px;font-size:68px" data-m="words">CRM Bônus: o cashback que traz o cliente de volta antes</h2><img src="a/crmbonus-ink.png" alt="CRM Bônus" style="height:54px" data-m="fade" data-d="400"></div>
+<div class="row ac g16">
+<div class="f1 flow" data-m data-d="400"><svg class="ic"><use href="#i-shopping-bag"/></svg><p>O cliente compra e ganha um bônus para a próxima compra.</p></div><svg class="ic c-bd" style="font-size:32px" data-m="fade" data-d="550"><use href="#i-chevron-right"/></svg>
+<div class="f1 flow" data-m data-d="600"><svg class="ic"><use href="#i-message-circle"/></svg><p>No dia seguinte, recebe uma mensagem com o valor e o prazo.</p></div><svg class="ic c-bd" style="font-size:32px" data-m="fade" data-d="750"><use href="#i-chevron-right"/></svg>
+<div class="f1 flow" data-m data-d="800"><svg class="ic"><use href="#i-timer"/></svg><p>Ele volta antes do bônus vencer para usar.</p></div><svg class="ic c-bd" style="font-size:32px" data-m="fade" data-d="950"><use href="#i-chevron-right"/></svg>
+<div class="f1 flow" data-m data-d="1000"><svg class="ic"><use href="#i-shield-check"/></svg><p>O desconto tem limite em cada compra.</p></div>
+</div>
+<div class="f1 row g24">
+<div class="col g20" style="width:720px;background:var(--ink);border-radius:24px;padding:32px 36px;color:#fff" data-m="left" data-d="1200">
+<div class="row ac g16"><span class="t26 w6 c-w6">Na</span><img src="a/corello-white.svg" alt="Corello" style="height:36px"></div>
+<div class="f1 row ae g24">
+<div class="f1 col g4"><span class="num c-li" style="font-size:72px"><span data-count="15" data-d="1400">15</span>%</span><p class="t22 w6">de bônus</p></div>
+<div class="f1 col g4"><span class="num c-li" style="font-size:72px"><span data-count="30" data-d="1500">30</span> dias</span><p class="t22 w6">de validade</p></div>
+<div class="f1 col g4"><span class="num c-li" style="font-size:72px"><small style="font-size:36px">até </small><span data-count="30" data-d="1600">30</span>%</span><p class="t22 w6">de desconto na próxima compra</p></div>
+</div>
+</div>
+<div class="f1 col g16" style="background:var(--vd);border-radius:24px;padding:32px 36px;color:#fff" data-m="right" data-d="1300">
+<div class="row ac g16"><span class="t26 w6 c-w6">Na</span><img src="a/logo-branco.svg" alt="Central de Adubos" style="height:40px"></div>
+<p class="t26 w7">Percentual e prazo definidos por categoria, olhando a margem.</p>
+<div class="row ac g16"><span class="t22 w6 c-w8" style="width:230px">Margem apertada</span><i class="mb" style="width:140px" data-m="growX" data-d="1700"></i><span class="t22 w7 c-li">bônus pequeno</span></div>
+<div class="row ac g16"><span class="t22 w6 c-w8" style="width:230px">Especialidade</span><i class="mb" style="width:380px" data-m="growX" data-d="1850"></i><span class="t22 w7 c-li">bônus maior</span></div>
+<p class="t22 w5 c-w8 tp">O painel mostra quem voltou por causa do bônus. Se não der retorno, ajusta.</p>
+</div>
+</div>
+<p class="row ac g12 t26 w7" data-m data-d="2000"><svg class="ic c-bd" style="font-size:30px"><use href="#i-plug"/></svg>Conecta com mais de 300 sistemas de gestão e de caixa.</p>
+<style>.flow{display:flex;flex-direction:column;gap:14px;padding:24px 26px;background:#fff;border:2px solid var(--ln);border-radius:20px}.flow .ic{font-size:38px;color:var(--bd)}.flow p{font:600 24px/1.3 var(--pj);text-wrap:pretty}.mb{display:block;height:30px;border-radius:8px;background:var(--li)}</style>
+</section>
+<!-- 23 -->
+<section class="s" data-title="Cliente de balcão daqui pra frente">
+<div class="f1 row g64">
+<div class="f1 col g28">
+<h2 class="h" data-m="words">O cliente de balcão, daqui para frente</h2>
+<ul class="col fwd">
+<li data-m="left" data-d="400"><span class="badge"><svg class="ic"><use href="#i-zap"/></svg></span>O Instagram e o WhatsApp respondem na hora.</li>
+<li data-m="left" data-d="550"><span class="badge"><svg class="ic"><use href="#i-user-check"/></svg></span>O vendedor só fala com quem vai comprar.</li>
+<li data-m="left" data-d="700"><span class="badge"><svg class="ic"><use href="#i-receipt"/></svg></span>Cada venda do digital tem nome, origem e valor.</li>
+<li data-m="left" data-d="850"><span class="badge"><svg class="ic"><use href="#i-repeat"/></svg></span>O cliente é chamado de volta antes de esfriar.</li>
+</ul>
+<div class="f1 col je"><p class="t48 w8 c-bd" data-m data-d="1200">O que muda para o time de vocês?</p></div>
+</div>
+<div class="ph kb fn" style="width:560px;border-radius:28px" data-m="right" data-d="300"><img src="a/c_augusto2.webp" alt="Produtor de uva cliente da Central"></div>
+</div>
+<style>.fwd li{display:flex;align-items:center;gap:22px;padding:20px 0;border-bottom:2px solid var(--ln);font:700 34px/1.25 var(--pj)}.fwd .badge{width:64px;height:64px;background:var(--vd);color:var(--li);font-size:30px}</style>
+</section>
+<!-- 24 -->
+<section class="s" data-title="Quanto custa não ter isso">
+<h2 class="h" data-m="words">Quanto custa não ter isso?</h2>
+<div class="row ac g20 t30" style="align-self:flex-start;padding:18px 28px;background:#fff;border:2px solid var(--ln);border-radius:18px" data-m data-d="300"><b class="w8 c-bd">Receita da base por ano</b><b>=</b><span class="w6">clientes ativos × ticket médio × compras por ano</span></div>
+<div class="f1 col jc g24">
+<p class="lbl c-bd" data-m data-d="500">Exemplo</p>
+<div class="row as g32 eq">
+<div class="col g8" data-m data-d="700"><span class="num">2.000</span><span class="t26 w6 c-mu">clientes</span></div>
+<span class="num op" data-m="pop" data-d="950">×</span>
+<div class="col g8" data-m data-d="1100"><span class="num">R$ 2.000</span><span class="t26 w6 c-mu">ticket médio</span></div>
+<span class="num op" data-m="pop" data-d="1350">×</span>
+<div class="col g8" data-m data-d="1500"><span class="num">3</span><span class="t26 w6 c-mu">compras por ano<br>(volta a cada 4 meses)</span></div>
+</div>
+<div class="row ac g28" style="align-self:flex-start;padding:24px 40px;border-radius:24px;background:var(--vd);color:#fff" data-m="scale" data-d="1900"><span class="num c-li" style="font-size:90px">=</span><span class="num" style="font-size:130px">R$ <span data-count="12" data-d="2000">12</span> milhões</span><span class="t34 w7 c-li">por ano</span></div>
+</div>
+<style>.eq .num{font-size:150px}.eq .op{font-size:100px;color:var(--bd);font-weight:500;padding-top:30px}</style>
+</section>
+<!-- 25 -->
+<section class="s" data-title="Cliente voltando antes">
+<h2 class="h" data-m="words">Agora com o cliente voltando antes</h2>
+<div class="f1 row g64">
+<div class="f1 col jc g28">
+<div class="as2" data-m="left" data-d="300"><svg class="ic c-vd"><use href="#i-calendar-clock"/></svg><div><b>O cliente volta 1 mês antes:</b><p>a cada 3 meses, 4 compras por ano.</p></div></div>
+<div class="as2" data-m="left" data-d="450"><svg class="ic c-vd"><use href="#i-trending-up"/></svg><div><b>O ticket sobe 10%:</b><p>de R$ 2.000 para R$ 2.200.</p></div></div>
+<div class="row ac g20 num" style="font-size:104px;padding-top:8px" data-m data-d="700"><span>2.000</span><span class="c-bd" style="font-weight:500">×</span><span class="c-vd">R$ 2.200</span><span class="c-bd" style="font-weight:500">×</span><span class="c-vd">4</span></div>
+<div class="row ac g24" style="align-self:flex-start;padding:20px 32px;border-radius:22px;background:var(--vd);color:#fff" data-m="scale" data-d="1000"><span class="num" style="font-size:96px">= R$ <span data-count="17.6" data-dec="1" data-from="12" data-d="1100">17,6</span> milhões</span><span class="t30 w7 c-li">por ano</span></div>
+</div>
+<div class="col g20" style="width:640px">
+<div class="f1 row ae g40" style="padding:0 20px">
+<div class="f1 col ac g12"><span class="num" style="font-size:56px">R$ 12 mi</span><i class="vb" style="height:300px;background:rgba(20,32,26,.2)" data-m="growY" data-d="900"></i><span class="t24 w7 c-mu">Hoje</span></div>
+<div class="f1 col ac g12"><span class="num c-vd" style="font-size:56px" data-m="fade" data-d="1500">R$ 17,6 mi</span><i class="vb" style="height:440px;background:var(--vd)" data-m="growY" data-d="1100"></i><span class="t24 w7 c-mu">Voltando antes</span></div>
+</div>
+<div class="col g4" style="padding:22px 28px;border-radius:20px;background:var(--bd);color:#fff" data-m data-d="1800"><p class="t32 w8">Diferença: R$ 5,6 milhões por ano.</p><p class="t24 w7 c-li">R$ 466 mil por mês. Sem nenhum cliente novo.</p></div>
+</div>
+</div>
+<style>.as2{display:flex;align-items:center;gap:20px;padding:20px 26px;background:#fff;border:2px solid var(--ln);border-radius:18px}.as2 .ic{font-size:38px}.as2 b{font:800 30px/1.2 var(--pj);color:var(--vd)}.as2 p{font:500 28px/1.3 var(--pj)}.vb{display:block;width:100%;border-radius:14px 14px 0 0}</style>
+</section>
+<!-- 26 -->
+<section class="s" data-theme="bd" data-title="Fica na mesa todo ano">
+<p class="lbl c-li" data-m data-d="100">É isso que fica na mesa todo ano</p>
+<div class="f1 col jc g32">
+<span class="num" style="font-size:200px;letter-spacing:-.02em" data-m data-d="200">R$ <span data-count="5.6" data-dec="1" data-d="300" data-dur="1800">5,6</span> milhões por ano.</span>
+<div class="rel" style="height:40px;border-radius:20px;overflow:hidden;background:rgba(255,255,255,.16)" data-m="fade" data-d="900"><i style="position:absolute;left:0;top:0;bottom:0;width:10%;background:var(--li)" data-m="growX" data-d="1300"></i></div>
+<p class="row ac g16 t40 w6" data-m data-d="1500">Mesmo que a gente entregue só 10% disso, são <b class="c-li w8">R$ <span data-count="560" data-d="1600">560</span> mil a mais.</b></p>
+</div>
+<p class="t40 w8 tb" style="max-width:1500px" data-m data-d="2200">Se a Central deixa R$ 5,6 milhões por ano na mesa, e a estrutura para buscar essa receita custa menos de 2% disso, vocês pagariam?</p>
+</section>
+<!-- 27 -->
+<section class="s" data-title="Montar com gente">
+<h2 class="h" data-m="words">Quanto custaria montar isso com gente</h2>
+<div class="col card" style="overflow:hidden" data-m data-d="300">
+<div class="pp hd"><span></span><span>ESTRUTURA</span><span>POR MÊS</span></div>
+<div class="pp" data-m="left" data-d="500"><svg class="ic c-bd"><use href="#i-headset"/></svg><span>Pré-vendedor dedicado, 160 horas, só em horário comercial</span><b>R$ 29.130,56</b></div>
+<div class="pp" data-m="left" data-d="620"><svg class="ic c-bd"><use href="#i-chart-column"/></svg><span>Profissional de BI, 15% de dedicação</span><b>R$ 6.320,33</b></div>
+<div class="pp" data-m="left" data-d="740"><svg class="ic c-bd"><use href="#i-users"/></svg><span>Profissional de CRM, 15% de dedicação</span><b>R$ 5.517,08</b></div>
+<div class="pp tot" data-m="fade" data-d="900"><svg class="ic c-li"><use href="#i-sigma"/></svg><span>Total</span><b>R$ <span data-count="40967.97" data-dec="2" data-d="1000">40.967,97</span></b></div>
+</div>
+<div class="f1 row ac jb">
+<div class="col g4" data-m data-d="1300"><span class="num c-bd" style="font-size:110px">R$ <span data-count="491615.64" data-dec="2" data-d="1400" data-dur="1800">491.615,64</span></span><span class="t30 w7">em 12 meses.</span></div>
+<div class="row ac g20" style="width:760px;padding:26px 32px;border-radius:22px;background:var(--ink);color:#fff" data-m="right" data-d="1900"><svg class="ic c-li" style="font-size:44px"><use href="#i-moon"/></svg><p class="t32 w8 tp">E ninguém responderia o produtor às 22h de sábado.</p></div>
+</div>
+<style>.pp{display:grid;grid-template-columns:36px 1fr auto;gap:24px;align-items:center;padding:26px 36px;border-bottom:1px solid var(--ln);font:600 30px/1.2 var(--pj)}.pp .ic{font-size:36px}.pp b{font:700 48px/1 var(--bc);font-variant-numeric:tabular-nums}.pp.hd{padding:18px 36px;background:var(--cr2);font:700 20px/1 var(--pj);letter-spacing:.08em;color:var(--mu)}.pp.tot{background:var(--vd);color:#fff;border:0;font-weight:800}.pp.tot b{color:var(--li);font-size:60px}</style>
+</section>
+<!-- 28 -->
+<section class="s" data-theme="vd" data-title="E se custasse metade">
+<div class="f1 col jc g40">
+<div class="row ac g32" data-m data-d="200"><span class="num rel half" style="font-size:90px;color:rgba(255,255,255,.45)">R$ 40.967,97<i></i></span><svg class="ic c-li" style="font-size:56px"><use href="#i-arrow-right"/></svg><span class="num c-li" style="font-size:90px">÷ 2</span></div>
+<p class="h" style="font-size:150px;letter-spacing:-.04em;line-height:1" data-m="words" data-d="700">E se custasse metade?</p>
+<p class="t44 w6 c-w8" data-m data-d="1300">Se essa estrutura custasse metade, valeria a pena para vocês?</p>
+</div>
+<style>.half i{position:absolute;left:-6px;right:-6px;top:50%;height:6px;border-radius:3px;background:var(--li);transform:scaleX(0);transform-origin:left}.s.play .half i{animation:m-growx .8s var(--eo) .7s both}</style>
+</section>
+<!-- 29 -->
+<section class="s priv" data-title="Investimento">
+<div class="row ac jb" data-m data-d="100"><p class="lbl c-bd">Investimento</p><button class="eye" data-eye aria-pressed="false" title="Mostrar ou ocultar valores (tecla V)"><svg class="ic off"><use href="#i-eye-off"/></svg><svg class="ic on"><use href="#i-eye"/></svg><span class="off">Liberar valores</span><span class="on">Ocultar valores</span><span class="eye-hint">V</span></button></div>
+<div class="row ae g24 rel" data-m data-d="250"><span class="lock-glow"></span><span class="num c-vd pv" style="font-size:150px;--pd:0ms">R$ <span data-count="98775.08" data-dec="2" data-dur="1600">98.775,08</span></span><span class="t40 w8" style="padding-bottom:14px">em 12 meses + CRM Bônus</span></div>
+<div class="f1 row g28">
+<div class="f1 col card inv" style="padding:28px 36px" data-m="left" data-d="400"><p class="lbl-s c-bd" style="padding-bottom:8px">Implantação</p>
+<div class="r"><span class="nm"><svg class="ic c-vd"><use href="#i-bot"/></svg>SDR IA</span><span class="v pv" style="--pd:100ms">R$ <span data-count="3500">3.500</span></span></div>
+<div class="r"><span class="nm"><img src="a/manychat-white.svg" alt="ManyChat" style="height:26px;filter:brightness(0)"></span><span class="v pv" style="--pd:180ms">R$ <span data-count="3923">3.923</span></span></div>
+<div class="r" style="border:0"><span class="nm"><svg class="ic c-bd"><use href="#i-chart-column"/></svg>Painel de vendas (BI)</span><span class="v pv" style="--pd:260ms">R$ <span data-count="8027.08" data-dec="2">8.027,08</span></span></div>
+</div>
+<div class="f1 col card inv" style="padding:28px 36px" data-m="right" data-d="500"><p class="lbl-s c-bd" style="padding-bottom:8px">Mensal</p>
+<div class="r"><div><span class="nm"><svg class="ic c-vd"><use href="#i-bot"/></svg>SDR IA</span><p class="sub">até 600 atendimentos por mês</p></div><span class="v pv" style="--pd:340ms">R$ <span data-count="5400">5.400</span></span></div>
+<div class="r"><span class="nm"><img src="a/manychat-white.svg" alt="ManyChat" style="height:26px;filter:brightness(0)"></span><span class="v pv" style="--pd:420ms">R$ <span data-count="700">700</span></span></div>
+<div class="r"><div><span class="nm"><svg class="ic c-bd"><use href="#i-chart-column"/></svg>Painel de vendas (BI)</span><p class="sub">manutenção do painel</p></div><span class="v pv" style="--pd:500ms">R$ <span data-count="843.75" data-dec="2">843,75</span></span></div>
+<div class="r" style="border:0"><span class="nm"><img src="a/crmbonus-ink.png" alt="CRM Bônus" style="height:28px"></span><span class="chip t22" style="background:var(--li);color:var(--vd);padding:8px 16px">[valor CRM Bônus]</span></div>
+</div>
+</div>
+<div class="row ac jb" data-m data-d="700"><p class="row ac g12 t20 w5 c-mu"><svg class="bi meta" style="font-size:24px"><use href="#b-meta"/></svg>As mensagens da API oficial do WhatsApp são pagas direto à Meta.</p><p class="t44 w8 c-bd">À vista ou parcelado?</p></div>
+</section>
+<!-- 30 -->
+<section class="s priv" data-theme="bd" data-title="Condição única">
+<div class="row ac jb" data-m data-d="100"><p class="lbl c-li">Condição única desta reunião</p><button class="eye" data-eye aria-pressed="false" title="Mostrar ou ocultar valores (tecla V)"><svg class="ic off"><use href="#i-eye-off"/></svg><svg class="ic on"><use href="#i-eye"/></svg><span class="off">Liberar valores</span><span class="on">Ocultar valores</span><span class="eye-hint">V</span></button></div>
+<div class="col g8 rel" data-m data-d="250"><span class="lock-glow"></span>
+<span class="num pv strike" style="font-size:56px;color:var(--w6);align-self:flex-start;--pd:0ms">R$ <span data-count="98775.08" data-dec="2" data-dur="900">98.775,08</span></span>
+<div class="row ae g24"><span class="num pv" style="font-size:180px;--pd:250ms">R$ <span data-count="80505" data-from="98775" data-dur="2200" data-cd="900">80.505</span></span><span class="t40 w8 c-li" style="padding-bottom:18px">em 12 meses + CRM Bônus</span></div>
+</div>
+<div class="f1 row g28">
+<div class="f1 col inv" style="padding:28px 36px;border-radius:24px;background:rgba(255,255,255,.08)" data-m="left" data-d="400">
+<div class="row ac jb" style="padding-bottom:8px"><p class="lbl-s c-li">Implantação</p><span class="num c-li pv" style="font-size:64px;--pd:300ms">R$ <span data-count="13845">13.845</span></span></div>
+<div class="r"><span class="nm"><svg class="ic c-li"><use href="#i-bot"/></svg>SDR IA</span><span class="v pv" style="--pd:380ms">R$ <span data-count="3500">3.500</span></span></div>
+<div class="r"><span class="nm"><img src="a/manychat-white.svg" alt="ManyChat" style="height:26px"></span><span class="v pv" style="--pd:440ms">R$ <span data-count="3923">3.923</span></span></div>
+<div class="r" style="border:0"><span class="nm"><svg class="ic c-li"><use href="#i-chart-column"/></svg>Painel de vendas (BI)</span><span class="v pv" style="--pd:500ms">R$ <span data-count="6422">6.422</span></span></div>
+</div>
+<div class="f1 col inv" style="padding:28px 36px;border-radius:24px;background:rgba(255,255,255,.08)" data-m="right" data-d="500">
+<div class="row ac jb" style="padding-bottom:8px"><p class="lbl-s c-li">Mensal</p><span class="num c-li pv" style="font-size:64px;--pd:560ms">R$ <span data-count="5555">5.555</span></span></div>
+<div class="r"><span class="nm"><svg class="ic c-li"><use href="#i-bot"/></svg>SDR IA</span><span class="v pv" style="--pd:620ms">R$ <span data-count="4320">4.320</span></span></div>
+<div class="r"><span class="nm"><img src="a/manychat-white.svg" alt="ManyChat" style="height:26px"></span><span class="v pv" style="--pd:680ms">R$ <span data-count="560">560</span></span></div>
+<div class="r" style="border:0"><div><span class="nm"><svg class="ic c-li"><use href="#i-chart-column"/></svg>Painel de vendas (BI)</span><p class="sub">manutenção do painel</p></div><span class="v pv" style="--pd:740ms">R$ <span data-count="675">675</span></span></div>
+</div>
+</div>
+<div class="row ac g24" data-m data-d="700"><p class="t40 w7">Vale só para a decisão tomada hoje.</p><span class="chip t40" style="background:var(--li);color:var(--vn);padding:12px 28px;border-radius:14px">Sim ou não.</span></div>
+</section>
+<!-- 31 -->
+<section class="s" data-title="A partir de amanhã">
+<h2 class="h" data-m="words">O que acontece a partir de amanhã</h2>
+<div class="f1 col jc">
+<div class="tl">
+<div class="k col ac g24 rel"><i class="ln" data-m="growX" data-d="700"></i><span class="dot" data-m="pop" data-d="400"><svg class="ic"><use href="#i-pen-line"/></svg></span><b class="num c-bd" style="font-size:52px" data-m data-d="500">SEMANA 1</b><p class="t26 w6 tp" style="text-align:center;padding:0 16px" data-m data-d="550">Contrato assinado e acessos liberados (WhatsApp, Instagram e sistema de vendas).</p></div>
+<div class="k col ac g24 rel"><i class="ln" data-m="growX" data-d="1050"></i><span class="dot" data-m="pop" data-d="750"><svg class="bi"><use href="#b-instagram"/></svg></span><b class="num c-bd" style="font-size:52px" data-m data-d="850">DIA 15</b><p class="t26 w6 tp" style="text-align:center;padding:0 16px" data-m data-d="900">ManyChat respondendo no Instagram.</p></div>
+<div class="k col ac g24 rel"><i class="ln" data-m="growX" data-d="1400"></i><span class="dot" data-m="pop" data-d="1100"><svg class="ic"><use href="#i-chart-column"/></svg></span><b class="num c-bd" style="font-size:52px" data-m data-d="1200">DIA 21</b><p class="t26 w6 tp" style="text-align:center;padding:0 16px" data-m data-d="1250">Painel de vendas no ar.</p></div>
+<div class="k col ac g24 rel"><i class="ln" data-m="growX" data-d="1750"></i><span class="dot" data-m="pop" data-d="1450"><svg class="ic"><use href="#i-bot"/></svg></span><b class="num c-bd" style="font-size:52px" data-m data-d="1550">DIA 30</b><p class="t26 w6 tp" style="text-align:center;padding:0 16px" data-m data-d="1600">SDR IA atendendo no WhatsApp.</p></div>
+<div class="k col ac g24 rel"><span class="dot" data-m="pop" data-d="1800"><svg class="ic"><use href="#i-sprout"/></svg></span><b class="num c-vd" style="font-size:52px" data-m data-d="1900">DIA 60</b><p class="t26 w6 tp" style="text-align:center;padding:0 16px" data-m data-d="1950">Primeira leitura da receita do digital e cashback rodando com a regra aprovada por vocês.</p></div>
+</div>
+</div>
+</section>
+<!-- 32 -->
+<section class="s" data-theme="bd" data-title="Agora o trabalho começa">
+<img class="giant" src="a/simbolo-branco.svg" alt="" aria-hidden="true">
+<div class="f1 col jc g32">
+<p class="lbl c-li" data-m data-d="200">Agora o trabalho começa</p>
+<p class="t60 w6 c-w8" style="font-size:60px;letter-spacing:-.02em" data-m data-d="400">A Central já sabe atrair e já sabe vender.</p>
+<p class="cover-t" style="font-size:120px;max-width:1500px" data-m="words" data-d="800">A partir de agora, vai saber quem volta.</p>
+</div>
+<div class="row ac g28" data-m="fade" data-d="1600"><img src="a/logo-branco.svg" alt="Central de Adubos" style="height:60px"><span class="logos-x">×</span><img src="a/v4-white.png" alt="V4 Company" style="height:54px"></div>
+</section>
+<div id="curtain" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+<div id="prog"></div>
+</main>
+<nav id="ui" aria-label="Navegação">
+<button data-act="prev" aria-label="Slide anterior"><svg class="ic"><use href="#i-chevron-left"/></svg></button>
+<span class="cnt" aria-live="polite">1 / 32</span>
+<button data-act="next" aria-label="Próximo slide"><svg class="ic"><use href="#i-chevron-right"/></svg></button>
+<button data-act="grid" aria-label="Ver todos os slides (G)"><svg class="ic"><use href="#i-layout-grid"/></svg></button>
+<button data-act="fs" aria-label="Tela cheia (F)"><svg class="ic"><use href="#i-maximize"/></svg></button>
+</nav>
+<div id="ov" role="dialog" aria-label="Todos os slides"><div class="grid"></div></div>
+<div id="hint">← → para navegar · G para ver todos · F tela cheia</div>
+<script>
+(()=>{"use strict";
+const doc=document.documentElement;doc.classList.add("js");
+const deck=document.getElementById("deck");
+const slides=[...deck.querySelectorAll(":scope > .s")];
+const N=slides.length;
+const RM=matchMedia("(prefers-reduced-motion: reduce)");
+const nf=d=>new Intl.NumberFormat("pt-BR",{minimumFractionDigits:d,maximumFractionDigits:d});
+const fmt=(v,d=0)=>nf(d).format(v);
+const qs=(r,s)=>[...r.querySelectorAll(s)];
+/* ---- escala ---- */
+function fit(){const k=Math.min((innerWidth-16)/1920,(innerHeight-16)/1080);deck.style.setProperty("--k",Math.max(.1,k).toFixed(4))}
+addEventListener("resize",fit);fit();
+/* ---- montagem: topo, palavras, pontos, escala 0-10, matriz, barras, sparklines ---- */
+slides.forEach((s,i)=>{
+if(!s.hasAttribute("data-notop")){
+const dark=s.dataset.theme;
+const t=document.createElement("header");t.className="top";
+t.innerHTML=`<span class="n">${String(i+1).padStart(2,"0")}</span><img src="a/${dark?"simbolo-branco":"simbolo-colorido"}.svg" alt="">`;
+s.prepend(t);
+}
+});
+qs(deck,"[data-m=words]").forEach(el=>{
+let wi=0;const walk=n=>{[...n.childNodes].forEach(c=>{
+if(c.nodeType===3){const parts=c.textContent.split(/(\s+)/);const f=document.createDocumentFragment();
+parts.forEach(p=>{if(!p)return;if(/^\s+$/.test(p)){f.append(" ");return}const w=document.createElement("span");w.className="w";const x=document.createElement("i");x.textContent=p;x.style.setProperty("--wi",wi++);w.append(x);f.append(w)});
+c.replaceWith(f)}else if(c.nodeType===1&&c.tagName!=="BR")walk(c)})};
+walk(el);el.setAttribute("aria-label",el.textContent.replace(/\s+/g," ").trim());
+});
+qs(deck,".dots[data-n]").forEach(el=>{const n=+el.dataset.n,b=+el.dataset.d||0;for(let k=0;k<30;k++){const i=document.createElement("i");if(k<n){i.className="on";i.style.setProperty("--d",(b+k*40)+"ms")}el.append(i)}});
+qs(deck,".scale10").forEach(el=>{for(let k=0;k<=10;k++){const s=document.createElement("span");s.textContent=k;s.setAttribute("data-m","pop");s.dataset.d=500+k*70;if(k>=8)s.className="hi";el.append(s)}});
+qs(deck,"[data-mx]").forEach(el=>{
+const cols=["Em dia","Perto do prazo","Passou do prazo","Sumido"],pal=[[15,61,38],[198,213,47],[160,18,52],[90,10,29]],mx=[402,151,120,64];
+const rows=[["Manga",40,[310,142,120,64]],["Uva",30,[402,151,48,37]],["Cebola",60,[128,76,35,22]],["Tomate",45,[96,58,27,19]],["Melão",50,[54,31,14,9]]];
+let h=`<span class="ch">Cultura · ciclo</span>`+cols.map(c=>`<span class="ch">${c}</span>`).join("");
+rows.forEach(([c,cy,v],r)=>{h+=`<span class="rl"><b>${c}</b><span>volta a cada ${cy} dias</span></span>`;
+v.forEach((n,k)=>{const a=.22+.78*n/mx[k],[R,G,B]=pal[k],light=k===1||a<.5,hot=r===0&&k===2;
+h+=`<span class="cell${hot?" hot":""}" data-m="pop" data-d="${700+(r+k)*70}" style="background:rgba(${R},${G},${B},${a.toFixed(2)});color:${k===1?"#0F3D26":light?"#14201A":"#fff"}"><span data-count="${n}" data-d="${750+(r+k)*70}" data-dur="900">${n}</span></span>`})});
+el.innerHTML=h;
+});
+qs(deck,"[data-bars]").forEach(el=>{const b=+el.dataset.d||0,items=el.dataset.bars.split(","),max=Math.max(...items.map(x=>+x.split(":")[1]));
+el.innerHTML=items.map((x,k)=>{const[l,v]=x.split(":");return `<div class="bc${k===items.length-1?" cur":""}"><b><span data-count="${v}" data-d="${b+k*110+200}" data-dur="900">${v}</span></b><i class="bv" style="height:${Math.round(+v/max*170)}px" data-m="growY" data-d="${b+k*110}"></i><small>${l}</small></div>`}).join("")});
+qs(deck,"[data-spark]").forEach(el=>{const b=+el.dataset.d||0,v=el.dataset.spark.split(",").map(Number),m=Math.max(...v);
+el.innerHTML=v.map((x,k)=>`<i style="height:${Math.max(4,Math.round(x/m*40))}px" data-m="growY" data-d="${b+k*60}"></i>`).join("")});
+/* ---- atrasos ---- */
+slides.forEach(s=>{let auto=150;qs(s,"[data-m]").forEach(el=>{let d;if(el.dataset.d!=null)d=+el.dataset.d;else if(el.style.getPropertyValue("--d"))return;else{d=auto;auto+=80}el.style.setProperty("--d",d+"ms");el._d=d})});
+/* ---- contadores ---- */
+let token=0;
+const isPriv=el=>{const p=el.closest(".pv");return p&&!p.closest(".priv").classList.contains("open")};
+const mask=el=>{el.textContent=fmt(+el.dataset.count,+(el.dataset.dec||0)).replace(/\d/g,"0")};
+function counterDelay(el){if(el.dataset.d!=null)return +el.dataset.d;const m=el.closest("[data-m]");return m&&m._d!=null?m._d+120:200}
+function runCount(el,delay,tk){
+const to=+el.dataset.count,dec=+(el.dataset.dec||0),from=el.dataset.from!=null?+el.dataset.from:0,dur=+(el.dataset.dur||1300);
+if(RM.matches){el.textContent=fmt(to,dec);return}
+el.textContent=fmt(from,dec);const t0=performance.now()+delay;
+const step=t=>{if(tk!==token&&!el._own){el.textContent=fmt(to,dec);return}
+let p=(t-t0)/dur;if(p<0){requestAnimationFrame(step);return}if(p>1)p=1;
+const e=1-Math.pow(1-p,4);el.textContent=fmt(from+(to-from)*e,dec);if(p<1)requestAnimationFrame(step)};
+requestAnimationFrame(step);
+}
+/* ---- valores protegidos ---- */
+qs(deck,".priv").forEach(s=>{qs(s,".pv [data-count]").forEach(mask)});
+function setPriv(s,open){
+if(!s.classList.contains("priv"))return;
+s.classList.toggle("open",open);
+const b=s.querySelector("[data-eye]");if(b){b.setAttribute("aria-pressed",open);b.setAttribute("aria-label",open?"Ocultar valores":"Mostrar valores")}
+qs(s,".pv [data-count]").forEach((el,k)=>{
+if(open){const pv=el.closest(".pv");const pd=parseInt(getComputedStyle(pv).getPropertyValue("--pd"))||0;el._own=true;runCount(el,pd+(+(el.dataset.cd||0)),-1)}
+else mask(el)});
+}
+deck.addEventListener("click",e=>{const b=e.target.closest("[data-eye]");if(b){e.stopPropagation();const s=b.closest(".s");setPriv(s,!s.classList.contains("open"))}});
+/* ---- tocar slide ---- */
+function play(s){
+token++;const tk=token;
+s.classList.remove("play");void s.offsetWidth;s.classList.add("play");
+qs(s,"[data-count]").forEach(el=>{if(el.closest(".pv")){if(isPriv(el))mask(el);return}el._own=false;runCount(el,counterDelay(el),tk)});
+}
+/* ---- navegação e cortina ---- */
+let cur=-1,busy=false,queued=null;
+const curtain=document.getElementById("curtain"),strips=[...curtain.children];
+const prog=document.getElementById("prog"),cnt=document.querySelector("#ui .cnt");
+const MODES=["blinds","wipe"];
+function show(i){
+slides.forEach((s,k)=>{if(k!==i){s.classList.remove("on","play")}});
+const s=slides[i];s.classList.add("on");cur=i;
+prog.style.width=((i+1)/N*100)+"%";cnt.textContent=`${i+1} / ${N}`;
+document.title=`${String(i+1).padStart(2,"0")} · ${s.dataset.title} · Central de Adubos`;
+history.replaceState(null,"","#"+(i+1));
+}
+async function go(i,instant){
+i=Math.max(0,Math.min(N-1,i));
+if(i===cur)return;
+if(busy){queued=i;return}
+const fwd=i>cur;
+if(instant||cur<0||RM.matches){show(i);play(slides[i]);return}
+busy=true;
+const t=slides[i].dataset.theme,color=t==="bd"?"#0F3D26":"#A01234",accent="#C6D52F";
+const mode=MODES[i%MODES.length];
+const order=k=>fwd?(strips.length-1-k):k;
+strips.forEach((st,k)=>{st.style.background=(k===(fwd?0:strips.length-1))?accent:color});
+const kf=(on)=>{
+if(mode==="rows")return on?[{transform:"scale(1,0)"},{transform:"scale(1,1)"}]:[{transform:"scale(1,1)"},{transform:"scale(1,0)"}];
+return on?[{transform:"scale(0,1)"},{transform:"scale(1,1)"}]:[{transform:"scale(1,1)"},{transform:"scale(0,1)"}];
+};
+const origin=(on,k)=>mode==="rows"?(k%2?"center bottom":"center top"):((on===fwd)?"right center":"left center");
+const stag=mode==="wipe"?0:34;
+const run=(on,dur)=>Promise.all(strips.map((st,k)=>{st.style.transformOrigin=origin(on,k);return st.animate(kf(on),{duration:dur,delay:order(k)*stag,easing:"cubic-bezier(.7,0,.3,1)",fill:"forwards"}).finished}));
+try{
+await run(true,380);
+show(i);play(slides[i]);
+await run(false,520);
+}finally{
+strips.forEach(st=>st.getAnimations().forEach(a=>a.cancel()));
+busy=false;
+if(queued!=null){const q=queued;queued=null;go(q)}
+}
+}
+const next=()=>go((queued!=null?queued:cur)+1),prev=()=>go((queued!=null?queued:cur)-1);
+/* ---- teclado / clique / toque ---- */
+let typed="";
+addEventListener("keydown",e=>{
+if(e.metaKey||e.ctrlKey||e.altKey)return;
+const ov=document.getElementById("ov").classList.contains("open");
+const k=e.key;
+if(ov){if(k==="Escape"||k==="g"||k==="G"){closeOv();e.preventDefault()}return}
+if(/^[0-9]$/.test(k)){typed+=k;return}
+if(k==="Enter"&&typed){go(+typed-1);typed="";e.preventDefault();return}
+typed="";
+if(["ArrowRight","PageDown"," ","Enter"].includes(k)){next();e.preventDefault()}
+else if(["ArrowLeft","PageUp","Backspace"].includes(k)){prev();e.preventDefault()}
+else if(k==="Home"){go(0)}else if(k==="End"){go(N-1)}
+else if(k==="g"||k==="G"){openOv()}
+else if(k==="f"||k==="F"){toggleFs()}
+else if(k==="v"||k==="V"){const s=slides[cur];if(s.classList.contains("priv"))setPriv(s,!s.classList.contains("open"))}
+});
+deck.addEventListener("click",e=>{if(e.target.closest("button,a,[data-eye]"))return;if(getSelection().toString())return;(e.clientX<innerWidth*.25?prev:next)()});
+let px=null,py=null;
+addEventListener("pointerdown",e=>{if(e.pointerType!=="mouse"){px=e.clientX;py=e.clientY}},{passive:true});
+addEventListener("pointerup",e=>{if(px==null)return;const dx=e.clientX-px,dy=e.clientY-py;px=null;if(Math.abs(dx)>60&&Math.abs(dx)>Math.abs(dy)){(dx<0?next:prev)()}},{passive:true});
+/* ---- interface ---- */
+const ui=document.getElementById("ui");let uiT;
+const poke=()=>{ui.classList.add("show");clearTimeout(uiT);uiT=setTimeout(()=>ui.classList.remove("show"),2200)};
+addEventListener("mousemove",poke,{passive:true});
+ui.addEventListener("click",e=>{const a=e.target.closest("[data-act]");if(!a)return;e.stopPropagation();({prev,next,grid:openOv,fs:toggleFs})[a.dataset.act]()});
+function toggleFs(){if(!document.fullscreenElement)doc.requestFullscreen?.().catch(()=>{});else document.exitFullscreen?.()}
+const hint=document.getElementById("hint");setTimeout(()=>{hint.style.opacity=0},3800);
+/* ---- visão geral ---- */
+const ov=document.getElementById("ov"),grid=ov.querySelector(".grid");let built=false;
+function openOv(){
+if(!built){built=true;slides.forEach((s,i)=>{const th=document.createElement("button");th.className="th";th.setAttribute("aria-label",`Ir para o slide ${i+1}: ${s.dataset.title}`);
+const c=s.cloneNode(true);c.classList.remove("s","on","play");c.classList.add("sx","static");c.removeAttribute("aria-label");
+qs(c,"[data-eye]").forEach(b=>b.remove());
+th.append(c);const lab=document.createElement("span");lab.textContent=`${i+1} · ${s.dataset.title}`;th.append(lab);
+th.addEventListener("click",()=>{closeOv();go(i,true)});grid.append(th)});
+const sc=()=>{const w=grid.querySelector(".th").getBoundingClientRect().width;qs(grid,".sx").forEach(x=>x.style.transform=`scale(${w/1920})`)};
+requestAnimationFrame(sc);addEventListener("resize",sc)}
+qs(grid,".th").forEach((t,k)=>t.classList.toggle("cur",k===cur));
+ov.classList.add("open");grid.children[cur]?.scrollIntoView({block:"center"});grid.children[cur]?.focus();
+}
+function closeOv(){ov.classList.remove("open")}
+ov.addEventListener("click",e=>{if(e.target===ov)closeOv()});
+/* ---- início ---- */
+const start=()=>{const h=parseInt(location.hash.slice(1));go(isNaN(h)?0:h-1,true)};
+const imgs=qs(deck,"img").map(im=>im.decode?im.decode().catch(()=>{}):Promise.resolve());
+Promise.race([Promise.all([document.fonts?document.fonts.ready:Promise.resolve(),...imgs]),new Promise(r=>setTimeout(r,2500))]).then(start);
+addEventListener("hashchange",()=>{const h=parseInt(location.hash.slice(1));if(!isNaN(h)&&h-1!==cur)go(h-1)});
+})();
+</script>
+</body>
+</html>

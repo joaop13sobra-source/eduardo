@@ -1,0 +1,4 @@
+interface:
+  display_name: "Aulas e apresentações Edutran"
+  short_description: "Aulas Edutran com composição editorial e movimento"
+  default_prompt: "Use $apresentacoes-edutran para criar uma apresentação didática a partir de um curso ou módulo da pasta Eduardo, aplicando a identidade Edutran e a referência editorial CDA para layout e efeitos."

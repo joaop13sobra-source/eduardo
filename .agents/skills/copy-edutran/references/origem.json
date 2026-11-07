@@ -1,0 +1,32 @@
+{
+  "adaptado_em": "2026-11-04",
+  "skill_origem": "skills-gerais/criar-copy-criativos/SKILL.md",
+  "sha256_skill_origem": "270cdd40a7160cf9ceb9152e508d5e3f20d5129cbb369c28ead29b4d7a89f675",
+  "biblioteca": [
+    {
+      "arquivo": "biblioteca-angulos_Genéricos.csv",
+      "sha256": "ed1225ad332ea06eb9a41d308c9882e5add4c7e7a8417eae9c5a3c2bef29e1ba"
+    },
+    {
+      "arquivo": "biblioteca-angulos_Oferta.csv",
+      "sha256": "44b6f7964096c0faeb64529f2fdea95a73b00cb574a9512db723a2fc0989537c"
+    },
+    {
+      "arquivo": "biblioteca-angulos_Problema.csv",
+      "sha256": "c4dc7d1bc6dca7a29d74bd263161ab66d9e17ba9bb1f2763ac57928c8fe873ef"
+    },
+    {
+      "arquivo": "biblioteca-angulos_Produto.csv",
+      "sha256": "ca770111ce4ee30210629629292a8a658b1d57c27eea3dc47db9b0369cd9b712"
+    },
+    {
+      "arquivo": "biblioteca-angulos_Solução.csv",
+      "sha256": "5b67fefccc7d83ed05df1f1208023e4d1f8877d760033cfdd8fa5ae9390d4b48"
+    },
+    {
+      "arquivo": "biblioteca-angulos_Índice.csv",
+      "sha256": "9211f20bc5f08ad77fbbc338d826990b6ad9d8159d882b6085101f76ab95afff"
+    }
+  ],
+  "notas": "Biblioteca copiada como referência genérica de ângulos. Exemplos não são ofertas Edutran. Fluxo adaptado ao contexto local, sem dependência de V4, NotebookLM, Ekyte ou Google Docs."
+}

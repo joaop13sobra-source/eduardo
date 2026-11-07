@@ -1,0 +1,8 @@
+/* Referência Edutran — Drive, 04/11/2026. Fotografia deve ter origem/uso conferidos. */
+:root{--blue:#005E91;--cyan:#008DB5;--deep:#06283A;--accent:#FFC51B;--yellow:#FFC51B;--ink:#141414;--paper:#F5F4F2}
+.edutran-photo{background:linear-gradient(90deg,rgba(6,40,58,.94) 0%,rgba(0,94,145,.73) 50%,rgba(6,40,58,.1) 100%),var(--foto-do-tema);background-size:cover;background-position:center;color:#fff}
+.edutran-photo h1,.edutran-photo h2{color:#fff}
+.edutran-photo mark{background:transparent;color:var(--accent)}
+.edutran-logo-base{background:#fff;border-radius:1.2em 1.2em 0 0;padding:1em;display:grid;place-items:center}
+.edutran-logo-base img{max-width:100%;object-fit:contain}
+.edutran-callout{background:var(--accent);color:#141414;border-radius:.6em;padding:.6em 1em}

@@ -1,0 +1,4 @@
+interface:
+  display_name: "Criativos e posts Edutran"
+  short_description: "Artes e campanhas para cursos e treinamentos Edutran"
+  default_prompt: "Use $criativos-edutran para criar materiais de divulgação de um curso, com a identidade e os conteúdos da Edutran."

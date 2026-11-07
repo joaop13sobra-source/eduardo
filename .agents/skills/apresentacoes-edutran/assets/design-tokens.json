@@ -1,0 +1,38 @@
+{
+  "status": "Direção visual aprovada pelo usuário a partir do criativo de transporte escolar",
+  "source": "../../../assets/referencias-aprovadas/edutran-transporte-escolar-v01.png",
+  "observed_at": "2026-11-04",
+  "colors": {
+    "brand": "#005E91",
+    "blue": "#005E91",
+    "deep": "#06283A",
+    "cyan": "#008DB5",
+    "ink": "#141414",
+    "accent": "#FFC51B",
+    "background": "#06283A",
+    "paper": "#FFFFFF"
+  },
+  "font": "IBM Plex Sans, system-ui, sans-serif",
+  "logo": "edutran-logo-perfil.jpg",
+  "layout_reference": "Identidade Edutran aprovada + composição editorial e movimento CDA (06/11/2026); capa com texto à esquerda e logo à direita.",
+  "reference_note": "../references/identidade-drive.md",
+  "motion": {
+    "easing_reveal": "cubic-bezier(.16,1,.3,1)",
+    "easing_curtain": "cubic-bezier(.7,0,.3,1)",
+    "reveal_ms": 700,
+    "word_stagger_ms": 45,
+    "curtain_in_ms": 280,
+    "curtain_out_ms": 360,
+    "strip_stagger_ms": 24,
+    "reduced_motion": true
+  },
+  "composition": {
+    "headline_line_height": 1.04,
+    "headline_tracking": "-.045em",
+    "headline_max_width": "24ch",
+    "horizontal_safe_area": "6.25vw",
+    "footer_safe_area": "10vh",
+    "light_surface": "#F5F4EF"
+  },
+  "editorial_reference": "../references/referencia-cda.md"
+}
